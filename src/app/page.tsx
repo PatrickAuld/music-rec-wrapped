@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import data from '../data.json';
 import { WrappedData } from '../types';
+import { slugify } from '../utils/slugify';
 
 const wrappedData = data as unknown as WrappedData;
 
@@ -20,10 +21,6 @@ function getInitials(name: string): string {
     .join('')
     .toUpperCase()
     .slice(0, 2);
-}
-
-function slugify(name: string): string {
-  return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 }
 
 export default function Home() {

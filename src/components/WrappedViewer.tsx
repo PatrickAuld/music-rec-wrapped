@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { User } from '../types';
 import WrappedCard from './WrappedCard';
 import html2canvas from 'html2canvas';
@@ -8,12 +10,16 @@ import html2canvas from 'html2canvas';
 interface WrappedViewerProps {
   user: User;
   userName: string;
+  initialCardIndex?: number;
 }
 
 const AUTO_ADVANCE_MS = 30000; // 30 seconds
 
-export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function WrappedViewer({ user, userName, initialCardIndex = 0 }: WrappedViewerProps) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [currentIndex, setCurrentIndex] = useState(() => Math.min(Math.max(initialCardIndex, 0), user.cards.length - 1));
   const [isPaused, setIsPaused] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
   const touchStartX = useRef<number | null>(null);
@@ -30,6 +36,48 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
   const goToPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + totalCards) % totalCards);
   }, [totalCards]);
+
+  const parseCardParam = useCallback(() => {
+    const param = searchParams.get('card');
+    const parsed = Number.parseInt(param ?? '', 10);
+
+    if (!Number.isFinite(parsed)) {
+      return null;
+    }
+
+    return Math.min(totalCards - 1, Math.max(0, parsed - 1));
+  }, [searchParams, totalCards]);
+
+  // Sync URL param -> state when it changes externally
+  useEffect(() => {
+    const paramIndex = parseCardParam();
+    if (paramIndex !== null && paramIndex !== currentIndex) {
+      setCurrentIndex(paramIndex);
+    }
+  }, [currentIndex, parseCardParam]);
+
+  // Sync state -> URL param
+  useEffect(() => {
+    const desiredCard = currentIndex + 1;
+    const params = new URLSearchParams(searchParams.toString());
+    const currentParam = parseCardParam();
+
+    if (currentParam === desiredCard - 1) return;
+
+    params.set('card', desiredCard.toString());
+    const paramsString = params.toString();
+    router.replace(paramsString ? `${pathname}?${paramsString}` : pathname, { scroll: false });
+  }, [currentIndex, pathname, router, searchParams, parseCardParam]);
+
+  const getShareUrl = useCallback(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('card', (currentIndex + 1).toString());
+    const paramsString = params.toString();
+    const basePath = paramsString ? `${pathname}?${paramsString}` : pathname;
+
+    if (typeof window === 'undefined') return basePath;
+    return `${window.location.origin}${basePath}`;
+  }, [currentIndex, pathname, searchParams]);
 
   // Auto-advance timer
   useEffect(() => {
@@ -106,6 +154,7 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
   const handleShare = async () => {
     setIsSharing(true);
     setIsPaused(true);
+    const shareUrl = getShareUrl();
 
     try {
       const cardElement = document.getElementById(`card-${currentIndex}`);
@@ -126,14 +175,20 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
         type: 'image/png',
       });
 
-      if (navigator.share && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
+      if (navigator.share) {
+        const shareData: ShareData = {
           title: 'Music Rec Wrapped',
-          text: `Check out my Music Rec Wrapped!`,
-        });
+          text: `Check out my Music Rec Wrapped (card ${currentIndex + 1}/${totalCards})!`,
+          url: shareUrl,
+        };
+
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          shareData.files = [file];
+        }
+
+        await navigator.share(shareData);
       } else {
-        // Fallback: download the image
+        // Fallback: download the image and copy the link
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -142,6 +197,11 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+        try {
+          await navigator.clipboard?.writeText(shareUrl);
+        } catch (error) {
+          console.warn('Could not copy link to clipboard', error);
+        }
       }
     } catch (error) {
       console.error('Share failed:', error);
@@ -205,13 +265,14 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
       </button>
 
       {/* Home button */}
-      <a
+      <Link
         href="/"
         onClick={(e) => e.stopPropagation()}
         className="fixed top-4 left-4 z-20 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-xl"
+        aria-label="Back to Music Rec Wrapped"
       >
         ←
-      </a>
+      </Link>
 
       {/* Swipe hint (only on first card) */}
       {currentIndex === 0 && (
