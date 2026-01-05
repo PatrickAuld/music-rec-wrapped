@@ -1,0 +1,3511 @@
+{
+  "top_level": {
+    "total_messages": 5307,
+    "total_music_links": 1324,
+    "unique_music_links": 1316,
+    "total_reactions": 594,
+    "total_replies": 758,
+    "messages_by_year": {
+      "2016": 848,
+      "2017": 568,
+      "2018": 582,
+      "2019": 287,
+      "2020": 503,
+      "2021": 462,
+      "2022": 657,
+      "2023": 362,
+      "2024": 497,
+      "2025": 529,
+      "2026": 12
+    },
+    "most_active_month": [
+      "2016-07",
+      201
+    ],
+    "most_active_day": [
+      "2016-07-08",
+      42
+    ],
+    "busiest_hour": [
+      10,
+      423
+    ],
+    "busiest_dow": [
+      "Friday",
+      1090
+    ],
+    "longest_streak": 15,
+    "reaction_breakdown": {
+      "\u2764": 275,
+      "\ud83d\udc4f": 40,
+      "\ud83d\udc4d": 37,
+      "\ud83e\udd23": 37,
+      "\ud83d\udd25": 35,
+      "\u2764\u200d\ud83d\udd25": 29,
+      "\ud83e\udd70": 27,
+      "\ud83d\udcaf": 23,
+      "\ud83d\ude01": 15,
+      "\ud83d\ude0d": 12,
+      "\ud83e\udd29": 7,
+      "\ud83c\udf89": 5,
+      "\ud83d\ude22": 5,
+      "\ud83d\udc40": 5,
+      "\ud83d\ude4f": 4
+    }
+  },
+  "leaderboards": {
+    "messages": [
+      [
+        "Thomas Boyles",
+        776,
+        1
+      ],
+      [
+        "John Griffin",
+        730,
+        2
+      ],
+      [
+        "Natale Smith",
+        597,
+        3
+      ],
+      [
+        "Isabel Dennis",
+        510,
+        4
+      ],
+      [
+        "Steph Sales",
+        419,
+        5
+      ],
+      [
+        "Patrick Auld",
+        318,
+        6
+      ],
+      [
+        "Peter Swartz",
+        302,
+        7
+      ],
+      [
+        "Colin Block",
+        242,
+        8
+      ],
+      [
+        "Breanna Bibeau",
+        192,
+        9
+      ],
+      [
+        "Eric Bloomquist",
+        152,
+        10
+      ]
+    ],
+    "music_links": [
+      [
+        "John Griffin",
+        336,
+        1
+      ],
+      [
+        "Patrick Auld",
+        158,
+        2
+      ],
+      [
+        "Thomas Boyles",
+        151,
+        3
+      ],
+      [
+        "Isabel Dennis",
+        148,
+        4
+      ],
+      [
+        "Peter Swartz",
+        107,
+        5
+      ],
+      [
+        "Natale Smith",
+        81,
+        6
+      ],
+      [
+        "Colin Block",
+        63,
+        7
+      ],
+      [
+        "Barrett",
+        59,
+        8
+      ],
+      [
+        "Carl Horwitz",
+        49,
+        9
+      ],
+      [
+        "Steph Sales",
+        29,
+        10
+      ]
+    ],
+    "reactions_received": [
+      [
+        "Isabel Dennis",
+        76,
+        1
+      ],
+      [
+        "John Griffin",
+        64,
+        2
+      ],
+      [
+        "Steph Sales",
+        59,
+        3
+      ],
+      [
+        "Carl Horwitz",
+        59,
+        4
+      ],
+      [
+        "Peter Swartz",
+        51,
+        5
+      ],
+      [
+        "Thomas Boyles",
+        50,
+        6
+      ],
+      [
+        "Natale Smith",
+        43,
+        7
+      ],
+      [
+        "Patrick Auld",
+        32,
+        8
+      ],
+      [
+        "Colin Block",
+        31,
+        9
+      ],
+      [
+        "Barrett",
+        18,
+        10
+      ]
+    ],
+    "replies_received": [
+      [
+        "John Griffin",
+        100,
+        1
+      ],
+      [
+        "Thomas Boyles",
+        80,
+        2
+      ],
+      [
+        "Isabel Dennis",
+        76,
+        3
+      ],
+      [
+        "Steph Sales",
+        68,
+        4
+      ],
+      [
+        "Natale Smith",
+        62,
+        5
+      ],
+      [
+        "Peter Swartz",
+        59,
+        6
+      ],
+      [
+        "Colin Block",
+        52,
+        7
+      ],
+      [
+        "Patrick Auld",
+        41,
+        8
+      ],
+      [
+        "Barrett",
+        26,
+        9
+      ],
+      [
+        "Breanna Bibeau",
+        25,
+        10
+      ]
+    ],
+    "replies_sent": [
+      [
+        "Natale Smith",
+        165,
+        1
+      ],
+      [
+        "Steph Sales",
+        136,
+        2
+      ],
+      [
+        "Isabel Dennis",
+        88,
+        3
+      ],
+      [
+        "John Griffin",
+        75,
+        4
+      ],
+      [
+        "Peter Swartz",
+        65,
+        5
+      ],
+      [
+        "Jana Kantor",
+        59,
+        6
+      ],
+      [
+        "Jessica Drury",
+        57,
+        7
+      ],
+      [
+        "Colin Block",
+        46,
+        8
+      ],
+      [
+        "Patrick Auld",
+        42,
+        9
+      ],
+      [
+        "Breanna Bibeau",
+        42,
+        10
+      ]
+    ],
+    "longest_streak": [
+      [
+        "Natale Smith",
+        6,
+        1
+      ],
+      [
+        "Thomas Boyles",
+        5,
+        2
+      ],
+      [
+        "John Griffin",
+        4,
+        3
+      ],
+      [
+        "Patrick Auld",
+        4,
+        4
+      ],
+      [
+        "Isabel Dennis",
+        4,
+        5
+      ],
+      [
+        "Steph Sales",
+        4,
+        6
+      ],
+      [
+        "Mixtape",
+        4,
+        7
+      ],
+      [
+        "Colin Block",
+        3,
+        8
+      ],
+      [
+        "Jessica Drury",
+        3,
+        9
+      ],
+      [
+        "Breanna Bibeau",
+        3,
+        10
+      ]
+    ],
+    "spotify": [
+      [
+        "John Griffin",
+        281,
+        1
+      ],
+      [
+        "Patrick Auld",
+        125,
+        2
+      ],
+      [
+        "Thomas Boyles",
+        119,
+        3
+      ],
+      [
+        "Isabel Dennis",
+        106,
+        4
+      ],
+      [
+        "Peter Swartz",
+        89,
+        5
+      ],
+      [
+        "Colin Block",
+        60,
+        6
+      ],
+      [
+        "Natale Smith",
+        59,
+        7
+      ],
+      [
+        "Barrett",
+        56,
+        8
+      ],
+      [
+        "Pablo Gabatto",
+        19,
+        9
+      ],
+      [
+        "Steph Sales",
+        18,
+        10
+      ]
+    ],
+    "soundcloud": [
+      [
+        "John Griffin",
+        49,
+        1
+      ],
+      [
+        "Isabel Dennis",
+        27,
+        2
+      ],
+      [
+        "Natale Smith",
+        14,
+        3
+      ],
+      [
+        "Patrick Auld",
+        10,
+        4
+      ],
+      [
+        "Peter Swartz",
+        9,
+        5
+      ],
+      [
+        "Sharon",
+        2,
+        6
+      ],
+      [
+        "Steph Sales",
+        2,
+        7
+      ],
+      [
+        "Thomas Boyles",
+        1,
+        8
+      ],
+      [
+        "Raymond Piccolotti",
+        1,
+        9
+      ],
+      [
+        "Breanna Bibeau",
+        1,
+        10
+      ]
+    ],
+    "youtube": [
+      [
+        "Carl Horwitz",
+        33,
+        1
+      ],
+      [
+        "Thomas Boyles",
+        30,
+        2
+      ],
+      [
+        "Patrick Auld",
+        22,
+        3
+      ],
+      [
+        "Isabel Dennis",
+        12,
+        4
+      ],
+      [
+        "Natale Smith",
+        8,
+        5
+      ],
+      [
+        "Peter Swartz",
+        8,
+        6
+      ],
+      [
+        "Steph Sales",
+        7,
+        7
+      ],
+      [
+        "John Griffin",
+        6,
+        8
+      ],
+      [
+        "Eric Bloomquist",
+        6,
+        9
+      ],
+      [
+        "Jana Kantor",
+        5,
+        10
+      ]
+    ]
+  },
+  "yearly_mvps": {
+    "2016": [
+      "Thomas Boyles",
+      223
+    ],
+    "2017": [
+      "Thomas Boyles",
+      94
+    ],
+    "2018": [
+      "Thomas Boyles",
+      99
+    ],
+    "2019": [
+      "Thomas Boyles",
+      62
+    ],
+    "2020": [
+      "John Griffin",
+      85
+    ],
+    "2021": [
+      "John Griffin",
+      63
+    ],
+    "2022": [
+      "Natale Smith",
+      87
+    ],
+    "2023": [
+      "John Griffin",
+      42
+    ],
+    "2024": [
+      "John Griffin",
+      73
+    ],
+    "2025": [
+      "John Griffin",
+      103
+    ],
+    "2026": [
+      "Thomas Boyles",
+      4
+    ]
+  },
+  "users": {
+    "Thomas Boyles": {
+      "messages": 776,
+      "music_links": 151,
+      "reactions_received": 50,
+      "replies_sent": 27,
+      "replies_received": 80,
+      "longest_streak": 5,
+      "links_by_platform": {
+        "spotify": 119,
+        "soundcloud": 1,
+        "youtube": 10,
+        "bandcamp": 1,
+        "youtube_music": 20
+      },
+      "messages_by_year": {
+        "2016": 223,
+        "2017": 94,
+        "2018": 99,
+        "2019": 62,
+        "2020": 50,
+        "2021": 48,
+        "2022": 54,
+        "2023": 33,
+        "2024": 51,
+        "2025": 58,
+        "2026": 4
+      },
+      "pct_messages": 14.622197098172226,
+      "pct_links": 11.404833836858005,
+      "pct_reactions": 8.417508417508419,
+      "pct_replies": 10.554089709762533,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 776,
+          "stat_label": "messages sent",
+          "subtitle": "That's 14.6% of all messages",
+          "rank": 1,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 151,
+          "stat_label": "songs shared",
+          "subtitle": "11.4% of all music in the group",
+          "rank": 3,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 119,
+          "total_links": 151,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 50,
+          "stat_label": "reactions received",
+          "subtitle": "8.4% of all reactions",
+          "rank": 6,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 80,
+          "stat_label": "replies to your messages",
+          "subtitle": "10.6% of all replies",
+          "rank": 2,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 27,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 3.6% of conversations going",
+          "rank": 13,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 5,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 2,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "mvp",
+          "title": "MVP Awards",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2026
+          ],
+          "subtitle": "Most active member in 5 years",
+          "emoji": "\ud83c\udfc6"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "years_count": 11,
+          "first_year": 2016,
+          "last_year": 2026,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#1 Most Messages",
+          "rank": 1,
+          "value": 776,
+          "board_name": "Most Messages",
+          "emoji": "\ud83c\udfc6"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 776,
+          "links": 151,
+          "reactions": 50,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Claudia Sanchez": {
+      "messages": 46,
+      "music_links": 0,
+      "reactions_received": 2,
+      "replies_sent": 20,
+      "replies_received": 3,
+      "longest_streak": 1,
+      "links_by_platform": {},
+      "messages_by_year": {
+        "2016": 14,
+        "2017": 8,
+        "2018": 11,
+        "2019": 2,
+        "2021": 4,
+        "2022": 3,
+        "2024": 3,
+        "2025": 1
+      },
+      "pct_messages": 0.8667797248916526,
+      "pct_links": 0.0,
+      "pct_reactions": 0.33670033670033667,
+      "pct_replies": 0.395778364116095,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 46,
+          "stat_label": "messages sent",
+          "subtitle": "That's 0.9% of all messages",
+          "rank": 19,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 2,
+          "stat_label": "reactions received",
+          "subtitle": "0.3% of all reactions",
+          "rank": 22,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 3,
+          "stat_label": "replies to your messages",
+          "subtitle": "0.4% of all replies",
+          "rank": 21,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 20,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 2.6% of conversations going",
+          "rank": 15,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2021,
+            2022,
+            2024,
+            2025
+          ],
+          "years_count": 8,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 46,
+          "links": 0,
+          "reactions": 2,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "John Griffin": {
+      "messages": 730,
+      "music_links": 336,
+      "reactions_received": 64,
+      "replies_sent": 75,
+      "replies_received": 100,
+      "longest_streak": 4,
+      "links_by_platform": {
+        "soundcloud": 49,
+        "spotify": 281,
+        "youtube": 6
+      },
+      "messages_by_year": {
+        "2016": 52,
+        "2017": 85,
+        "2018": 87,
+        "2019": 60,
+        "2020": 85,
+        "2021": 63,
+        "2022": 78,
+        "2023": 42,
+        "2024": 73,
+        "2025": 103,
+        "2026": 2
+      },
+      "pct_messages": 13.755417373280574,
+      "pct_links": 25.377643504531722,
+      "pct_reactions": 10.774410774410773,
+      "pct_replies": 13.192612137203167,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 730,
+          "stat_label": "messages sent",
+          "subtitle": "That's 13.8% of all messages",
+          "rank": 2,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 336,
+          "stat_label": "songs shared",
+          "subtitle": "25.4% of all music in the group",
+          "rank": 1,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 281,
+          "total_links": 336,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 64,
+          "stat_label": "reactions received",
+          "subtitle": "10.8% of all reactions",
+          "rank": 2,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 100,
+          "stat_label": "replies to your messages",
+          "subtitle": "13.2% of all replies",
+          "rank": 1,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 75,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 9.9% of conversations going",
+          "rank": 4,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 4,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 3,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "mvp",
+          "title": "MVP Awards",
+          "years": [
+            2020,
+            2021,
+            2023,
+            2024,
+            2025
+          ],
+          "subtitle": "Most active member in 5 years",
+          "emoji": "\ud83c\udfc6"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "years_count": 11,
+          "first_year": 2016,
+          "last_year": 2026,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#1 Music Curator",
+          "rank": 1,
+          "value": 336,
+          "board_name": "Music Curator",
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 730,
+          "links": 336,
+          "reactions": 64,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Pablo Gabatto": {
+      "messages": 91,
+      "music_links": 23,
+      "reactions_received": 9,
+      "replies_sent": 33,
+      "replies_received": 22,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "youtube": 2,
+        "spotify": 19,
+        "youtube_music": 2
+      },
+      "messages_by_year": {
+        "2016": 49,
+        "2017": 1,
+        "2018": 5,
+        "2019": 3,
+        "2020": 6,
+        "2021": 2,
+        "2022": 4,
+        "2023": 8,
+        "2024": 6,
+        "2025": 7
+      },
+      "pct_messages": 1.7147164122856602,
+      "pct_links": 1.7371601208459215,
+      "pct_reactions": 1.5151515151515151,
+      "pct_replies": 2.9023746701846966,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 91,
+          "stat_label": "messages sent",
+          "subtitle": "That's 1.7% of all messages",
+          "rank": 14,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 23,
+          "stat_label": "songs shared",
+          "subtitle": "1.7% of all music in the group",
+          "rank": 11,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 19,
+          "total_links": 23,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 9,
+          "stat_label": "reactions received",
+          "subtitle": "1.5% of all reactions",
+          "rank": 16,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 22,
+          "stat_label": "replies to your messages",
+          "subtitle": "2.9% of all replies",
+          "rank": 11,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 33,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 4.4% of conversations going",
+          "rank": 11,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 15,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 91,
+          "links": 23,
+          "reactions": 9,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Patrick Auld": {
+      "messages": 318,
+      "music_links": 158,
+      "reactions_received": 32,
+      "replies_sent": 42,
+      "replies_received": 41,
+      "longest_streak": 4,
+      "links_by_platform": {
+        "youtube": 22,
+        "spotify": 125,
+        "soundcloud": 10,
+        "bandcamp": 1
+      },
+      "messages_by_year": {
+        "2016": 56,
+        "2017": 60,
+        "2018": 35,
+        "2019": 11,
+        "2020": 26,
+        "2021": 23,
+        "2022": 41,
+        "2023": 11,
+        "2024": 31,
+        "2025": 24
+      },
+      "pct_messages": 5.99208592425099,
+      "pct_links": 11.933534743202417,
+      "pct_reactions": 5.387205387205387,
+      "pct_replies": 5.408970976253298,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 318,
+          "stat_label": "messages sent",
+          "subtitle": "That's 6.0% of all messages",
+          "rank": 6,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 158,
+          "stat_label": "songs shared",
+          "subtitle": "11.9% of all music in the group",
+          "rank": 2,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 125,
+          "total_links": 158,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 32,
+          "stat_label": "reactions received",
+          "subtitle": "5.4% of all reactions",
+          "rank": 8,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 41,
+          "stat_label": "replies to your messages",
+          "subtitle": "5.4% of all replies",
+          "rank": 8,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 42,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 5.5% of conversations going",
+          "rank": 9,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 4,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 4,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#2 Music Curator",
+          "rank": 2,
+          "value": 158,
+          "board_name": "Music Curator",
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 318,
+          "links": 158,
+          "reactions": 32,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Isabel Dennis": {
+      "messages": 510,
+      "music_links": 148,
+      "reactions_received": 76,
+      "replies_sent": 88,
+      "replies_received": 76,
+      "longest_streak": 4,
+      "links_by_platform": {
+        "soundcloud": 27,
+        "spotify": 106,
+        "youtube": 12,
+        "bandcamp": 3
+      },
+      "messages_by_year": {
+        "2016": 93,
+        "2017": 36,
+        "2018": 40,
+        "2019": 23,
+        "2020": 67,
+        "2021": 49,
+        "2022": 73,
+        "2023": 27,
+        "2024": 43,
+        "2025": 59
+      },
+      "pct_messages": 9.609949123798756,
+      "pct_links": 11.178247734138973,
+      "pct_reactions": 12.794612794612794,
+      "pct_replies": 10.026385224274406,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 510,
+          "stat_label": "messages sent",
+          "subtitle": "That's 9.6% of all messages",
+          "rank": 4,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 148,
+          "stat_label": "songs shared",
+          "subtitle": "11.2% of all music in the group",
+          "rank": 4,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 106,
+          "total_links": 148,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 76,
+          "stat_label": "reactions received",
+          "subtitle": "12.8% of all reactions",
+          "rank": 1,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 76,
+          "stat_label": "replies to your messages",
+          "subtitle": "10.0% of all replies",
+          "rank": 3,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 88,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 11.6% of conversations going",
+          "rank": 3,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 4,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 5,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#1 Most Loved",
+          "rank": 1,
+          "value": 76,
+          "board_name": "Most Loved",
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 510,
+          "links": 148,
+          "reactions": 76,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Raymond Piccolotti": {
+      "messages": 56,
+      "music_links": 13,
+      "reactions_received": 7,
+      "replies_sent": 17,
+      "replies_received": 9,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "soundcloud": 1,
+        "youtube": 4,
+        "spotify": 8
+      },
+      "messages_by_year": {
+        "2016": 8,
+        "2017": 9,
+        "2018": 1,
+        "2019": 1,
+        "2020": 8,
+        "2021": 7,
+        "2022": 5,
+        "2023": 3,
+        "2024": 9,
+        "2025": 5
+      },
+      "pct_messages": 1.0552100998680987,
+      "pct_links": 0.9818731117824773,
+      "pct_reactions": 1.1784511784511784,
+      "pct_replies": 1.1873350923482848,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 56,
+          "stat_label": "messages sent",
+          "subtitle": "That's 1.1% of all messages",
+          "rank": 18,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 13,
+          "stat_label": "songs shared",
+          "subtitle": "1.0% of all music in the group",
+          "rank": 12,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 8,
+          "total_links": 13,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 7,
+          "stat_label": "reactions received",
+          "subtitle": "1.2% of all reactions",
+          "rank": 18,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 9,
+          "stat_label": "replies to your messages",
+          "subtitle": "1.2% of all replies",
+          "rank": 19,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 17,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 2.2% of conversations going",
+          "rank": 16,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 16,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 56,
+          "links": 13,
+          "reactions": 7,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Natale Smith": {
+      "messages": 597,
+      "music_links": 81,
+      "reactions_received": 43,
+      "replies_sent": 165,
+      "replies_received": 62,
+      "longest_streak": 6,
+      "links_by_platform": {
+        "youtube": 8,
+        "soundcloud": 14,
+        "spotify": 59
+      },
+      "messages_by_year": {
+        "2016": 144,
+        "2017": 76,
+        "2018": 86,
+        "2019": 24,
+        "2020": 26,
+        "2021": 36,
+        "2022": 87,
+        "2023": 34,
+        "2024": 43,
+        "2025": 41
+      },
+      "pct_messages": 11.249293386093838,
+      "pct_links": 6.117824773413897,
+      "pct_reactions": 7.23905723905724,
+      "pct_replies": 8.179419525065963,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 597,
+          "stat_label": "messages sent",
+          "subtitle": "That's 11.2% of all messages",
+          "rank": 3,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 81,
+          "stat_label": "songs shared",
+          "subtitle": "6.1% of all music in the group",
+          "rank": 6,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 59,
+          "total_links": 81,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 43,
+          "stat_label": "reactions received",
+          "subtitle": "7.2% of all reactions",
+          "rank": 7,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 62,
+          "stat_label": "replies to your messages",
+          "subtitle": "8.2% of all replies",
+          "rank": 5,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 165,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 21.8% of conversations going",
+          "rank": 1,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 6,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 1,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "mvp",
+          "title": "MVP Awards",
+          "years": [
+            2022
+          ],
+          "subtitle": "Most active member in 1 year",
+          "emoji": "\ud83c\udfc6"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#1 Reply Champion",
+          "rank": 1,
+          "value": 165,
+          "board_name": "Reply Champion",
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 597,
+          "links": 81,
+          "reactions": 43,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Colin Block": {
+      "messages": 242,
+      "music_links": 63,
+      "reactions_received": 31,
+      "replies_sent": 46,
+      "replies_received": 52,
+      "longest_streak": 3,
+      "links_by_platform": {
+        "spotify": 60,
+        "youtube": 3
+      },
+      "messages_by_year": {
+        "2016": 5,
+        "2017": 12,
+        "2018": 53,
+        "2019": 24,
+        "2020": 41,
+        "2021": 19,
+        "2022": 39,
+        "2023": 14,
+        "2024": 18,
+        "2025": 17
+      },
+      "pct_messages": 4.560015074429998,
+      "pct_links": 4.758308157099698,
+      "pct_reactions": 5.218855218855219,
+      "pct_replies": 6.860158311345646,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 242,
+          "stat_label": "messages sent",
+          "subtitle": "That's 4.6% of all messages",
+          "rank": 8,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 63,
+          "stat_label": "songs shared",
+          "subtitle": "4.8% of all music in the group",
+          "rank": 7,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 60,
+          "total_links": 63,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 31,
+          "stat_label": "reactions received",
+          "subtitle": "5.2% of all reactions",
+          "rank": 9,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 52,
+          "stat_label": "replies to your messages",
+          "subtitle": "6.9% of all replies",
+          "rank": 7,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 46,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 6.1% of conversations going",
+          "rank": 8,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 3,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 8,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 242,
+          "links": 63,
+          "reactions": 31,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Jessica Drury": {
+      "messages": 79,
+      "music_links": 2,
+      "reactions_received": 7,
+      "replies_sent": 57,
+      "replies_received": 14,
+      "longest_streak": 3,
+      "links_by_platform": {
+        "spotify": 2
+      },
+      "messages_by_year": {
+        "2016": 9,
+        "2017": 8,
+        "2018": 6,
+        "2019": 2,
+        "2020": 10,
+        "2021": 9,
+        "2022": 19,
+        "2023": 7,
+        "2024": 4,
+        "2025": 4,
+        "2026": 1
+      },
+      "pct_messages": 1.488599962313925,
+      "pct_links": 0.1510574018126888,
+      "pct_reactions": 1.1784511784511784,
+      "pct_replies": 1.8469656992084433,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 79,
+          "stat_label": "messages sent",
+          "subtitle": "That's 1.5% of all messages",
+          "rank": 15,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 2,
+          "stat_label": "songs shared",
+          "subtitle": "0.2% of all music in the group",
+          "rank": 20,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 2,
+          "total_links": 2,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 7,
+          "stat_label": "reactions received",
+          "subtitle": "1.2% of all reactions",
+          "rank": 19,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 14,
+          "stat_label": "replies to your messages",
+          "subtitle": "1.8% of all replies",
+          "rank": 16,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 57,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 7.5% of conversations going",
+          "rank": 7,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 3,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 9,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "years_count": 11,
+          "first_year": 2016,
+          "last_year": 2026,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 79,
+          "links": 2,
+          "reactions": 7,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Breanna Bibeau": {
+      "messages": 192,
+      "music_links": 10,
+      "reactions_received": 15,
+      "replies_sent": 42,
+      "replies_received": 25,
+      "longest_streak": 3,
+      "links_by_platform": {
+        "soundcloud": 1,
+        "youtube": 2,
+        "spotify": 7
+      },
+      "messages_by_year": {
+        "2016": 19,
+        "2017": 35,
+        "2018": 16,
+        "2019": 15,
+        "2020": 18,
+        "2021": 21,
+        "2022": 31,
+        "2023": 8,
+        "2024": 16,
+        "2025": 12,
+        "2026": 1
+      },
+      "pct_messages": 3.617863199547767,
+      "pct_links": 0.7552870090634441,
+      "pct_reactions": 2.525252525252525,
+      "pct_replies": 3.2981530343007917,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 192,
+          "stat_label": "messages sent",
+          "subtitle": "That's 3.6% of all messages",
+          "rank": 9,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 10,
+          "stat_label": "songs shared",
+          "subtitle": "0.8% of all music in the group",
+          "rank": 14,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 7,
+          "total_links": 10,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 15,
+          "stat_label": "reactions received",
+          "subtitle": "2.5% of all reactions",
+          "rank": 11,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 25,
+          "stat_label": "replies to your messages",
+          "subtitle": "3.3% of all replies",
+          "rank": 10,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 42,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 5.5% of conversations going",
+          "rank": 10,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 3,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 10,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "years_count": 11,
+          "first_year": 2016,
+          "last_year": 2026,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 192,
+          "links": 10,
+          "reactions": 15,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Eric Bloomquist": {
+      "messages": 152,
+      "music_links": 10,
+      "reactions_received": 8,
+      "replies_sent": 7,
+      "replies_received": 19,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "youtube": 6,
+        "spotify": 4
+      },
+      "messages_by_year": {
+        "2016": 54,
+        "2017": 22,
+        "2018": 22,
+        "2019": 8,
+        "2020": 3,
+        "2021": 9,
+        "2022": 18,
+        "2023": 6,
+        "2024": 6,
+        "2025": 4
+      },
+      "pct_messages": 2.8641416996419826,
+      "pct_links": 0.7552870090634441,
+      "pct_reactions": 1.3468013468013467,
+      "pct_replies": 2.5065963060686016,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 152,
+          "stat_label": "messages sent",
+          "subtitle": "That's 2.9% of all messages",
+          "rank": 10,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 10,
+          "stat_label": "songs shared",
+          "subtitle": "0.8% of all music in the group",
+          "rank": 15,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "YouTube",
+          "count": 6,
+          "total_links": 10,
+          "emoji": "\ud83d\udd34"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 8,
+          "stat_label": "reactions received",
+          "subtitle": "1.3% of all reactions",
+          "rank": 17,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 19,
+          "stat_label": "replies to your messages",
+          "subtitle": "2.5% of all replies",
+          "rank": 12,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 7,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 0.9% of conversations going",
+          "rank": 21,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 17,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 152,
+          "links": 10,
+          "reactions": 8,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Sharon": {
+      "messages": 36,
+      "music_links": 8,
+      "reactions_received": 11,
+      "replies_sent": 9,
+      "replies_received": 15,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "spotify": 6,
+        "soundcloud": 2
+      },
+      "messages_by_year": {
+        "2016": 2,
+        "2017": 2,
+        "2018": 3,
+        "2019": 1,
+        "2020": 3,
+        "2022": 12,
+        "2023": 10,
+        "2024": 2,
+        "2025": 1
+      },
+      "pct_messages": 0.6783493499152063,
+      "pct_links": 0.6042296072507553,
+      "pct_reactions": 1.8518518518518516,
+      "pct_replies": 1.978891820580475,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 36,
+          "stat_label": "messages sent",
+          "subtitle": "That's 0.7% of all messages",
+          "rank": 20,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 8,
+          "stat_label": "songs shared",
+          "subtitle": "0.6% of all music in the group",
+          "rank": 17,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 6,
+          "total_links": 8,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 11,
+          "stat_label": "reactions received",
+          "subtitle": "1.9% of all reactions",
+          "rank": 12,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 15,
+          "stat_label": "replies to your messages",
+          "subtitle": "2.0% of all replies",
+          "rank": 15,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 9,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 1.2% of conversations going",
+          "rank": 20,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 18,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 9,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 36,
+          "links": 8,
+          "reactions": 11,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Steph Sales": {
+      "messages": 419,
+      "music_links": 29,
+      "reactions_received": 59,
+      "replies_sent": 136,
+      "replies_received": 68,
+      "longest_streak": 4,
+      "links_by_platform": {
+        "spotify": 18,
+        "soundcloud": 2,
+        "youtube": 7,
+        "bandcamp": 2
+      },
+      "messages_by_year": {
+        "2016": 51,
+        "2017": 56,
+        "2018": 50,
+        "2019": 19,
+        "2020": 52,
+        "2021": 30,
+        "2022": 51,
+        "2023": 35,
+        "2024": 43,
+        "2025": 32
+      },
+      "pct_messages": 7.8952327115130965,
+      "pct_links": 2.190332326283988,
+      "pct_reactions": 9.932659932659933,
+      "pct_replies": 8.970976253298153,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 419,
+          "stat_label": "messages sent",
+          "subtitle": "That's 7.9% of all messages",
+          "rank": 5,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 29,
+          "stat_label": "songs shared",
+          "subtitle": "2.2% of all music in the group",
+          "rank": 10,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 18,
+          "total_links": 29,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 59,
+          "stat_label": "reactions received",
+          "subtitle": "9.9% of all reactions",
+          "rank": 3,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 68,
+          "stat_label": "replies to your messages",
+          "subtitle": "9.0% of all replies",
+          "rank": 4,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 136,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 17.9% of conversations going",
+          "rank": 2,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 4,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 6,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#2 Reply Champion",
+          "rank": 2,
+          "value": 136,
+          "board_name": "Reply Champion",
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 419,
+          "links": 29,
+          "reactions": 59,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Jana Kantor": {
+      "messages": 138,
+      "music_links": 13,
+      "reactions_received": 11,
+      "replies_sent": 59,
+      "replies_received": 16,
+      "longest_streak": 3,
+      "links_by_platform": {
+        "spotify": 7,
+        "youtube": 5,
+        "bandcamp": 1
+      },
+      "messages_by_year": {
+        "2016": 18,
+        "2017": 9,
+        "2018": 16,
+        "2019": 8,
+        "2020": 9,
+        "2021": 22,
+        "2022": 29,
+        "2023": 13,
+        "2024": 8,
+        "2025": 6
+      },
+      "pct_messages": 2.6003391746749576,
+      "pct_links": 0.9818731117824773,
+      "pct_reactions": 1.8518518518518516,
+      "pct_replies": 2.1108179419525066,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 138,
+          "stat_label": "messages sent",
+          "subtitle": "That's 2.6% of all messages",
+          "rank": 11,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 13,
+          "stat_label": "songs shared",
+          "subtitle": "1.0% of all music in the group",
+          "rank": 13,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 7,
+          "total_links": 13,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 11,
+          "stat_label": "reactions received",
+          "subtitle": "1.9% of all reactions",
+          "rank": 13,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 16,
+          "stat_label": "replies to your messages",
+          "subtitle": "2.1% of all replies",
+          "rank": 14,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 59,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 7.8% of conversations going",
+          "rank": 6,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 3,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 11,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 10,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 138,
+          "links": 13,
+          "reactions": 11,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Aaron Mazel-Gee": {
+      "messages": 20,
+      "music_links": 4,
+      "reactions_received": 3,
+      "replies_sent": 6,
+      "replies_received": 2,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "spotify": 2,
+        "youtube": 1,
+        "soundcloud": 1
+      },
+      "messages_by_year": {
+        "2016": 8,
+        "2018": 1,
+        "2023": 2,
+        "2024": 7,
+        "2025": 2
+      },
+      "pct_messages": 0.3768607499528924,
+      "pct_links": 0.3021148036253776,
+      "pct_reactions": 0.5050505050505051,
+      "pct_replies": 0.2638522427440633,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 20,
+          "stat_label": "messages sent",
+          "subtitle": "That's 0.4% of all messages",
+          "rank": 23,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 4,
+          "stat_label": "songs shared",
+          "subtitle": "0.3% of all music in the group",
+          "rank": 18,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 2,
+          "total_links": 4,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 3,
+          "stat_label": "reactions received",
+          "subtitle": "0.5% of all reactions",
+          "rank": 21,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 2,
+          "stat_label": "replies to your messages",
+          "subtitle": "0.3% of all replies",
+          "rank": 23,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 6,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 0.8% of conversations going",
+          "rank": 23,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 19,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2018,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 5,
+          "first_year": 2016,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 20,
+          "links": 4,
+          "reactions": 3,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Peter Swartz": {
+      "messages": 302,
+      "music_links": 107,
+      "reactions_received": 51,
+      "replies_sent": 65,
+      "replies_received": 59,
+      "longest_streak": 3,
+      "links_by_platform": {
+        "spotify": 89,
+        "soundcloud": 9,
+        "bandcamp": 1,
+        "youtube": 8
+      },
+      "messages_by_year": {
+        "2016": 2,
+        "2017": 22,
+        "2018": 22,
+        "2019": 11,
+        "2020": 25,
+        "2021": 52,
+        "2022": 38,
+        "2023": 41,
+        "2024": 46,
+        "2025": 42,
+        "2026": 1
+      },
+      "pct_messages": 5.690597324288675,
+      "pct_links": 8.08157099697885,
+      "pct_reactions": 8.585858585858585,
+      "pct_replies": 7.783641160949868,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 302,
+          "stat_label": "messages sent",
+          "subtitle": "That's 5.7% of all messages",
+          "rank": 7,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 107,
+          "stat_label": "songs shared",
+          "subtitle": "8.1% of all music in the group",
+          "rank": 5,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 89,
+          "total_links": 107,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 51,
+          "stat_label": "reactions received",
+          "subtitle": "8.6% of all reactions",
+          "rank": 5,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 59,
+          "stat_label": "replies to your messages",
+          "subtitle": "7.8% of all replies",
+          "rank": 6,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 65,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 8.6% of conversations going",
+          "rank": 5,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 3,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 12,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "years_count": 11,
+          "first_year": 2016,
+          "last_year": 2026,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#5 Music Curator",
+          "rank": 5,
+          "value": 107,
+          "board_name": "Music Curator",
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 302,
+          "links": 107,
+          "reactions": 51,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Hadass Gerson": {
+      "messages": 27,
+      "music_links": 3,
+      "reactions_received": 0,
+      "replies_sent": 13,
+      "replies_received": 4,
+      "longest_streak": 1,
+      "links_by_platform": {
+        "spotify": 3
+      },
+      "messages_by_year": {
+        "2017": 2,
+        "2018": 6,
+        "2019": 1,
+        "2020": 13,
+        "2021": 3,
+        "2022": 1,
+        "2023": 1
+      },
+      "pct_messages": 0.5087620124364047,
+      "pct_links": 0.22658610271903326,
+      "pct_reactions": 0.0,
+      "pct_replies": 0.5277044854881267,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 27,
+          "stat_label": "messages sent",
+          "subtitle": "That's 0.5% of all messages",
+          "rank": 21,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 3,
+          "stat_label": "songs shared",
+          "subtitle": "0.2% of all music in the group",
+          "rank": 19,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 3,
+          "total_links": 3,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 4,
+          "stat_label": "replies to your messages",
+          "subtitle": "0.5% of all replies",
+          "rank": 20,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 13,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 1.7% of conversations going",
+          "rank": 17,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "years_count": 7,
+          "first_year": 2017,
+          "last_year": 2023,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 27,
+          "links": 3,
+          "reactions": 0,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Margeaux Bucher": {
+      "messages": 20,
+      "music_links": 1,
+      "reactions_received": 0,
+      "replies_sent": 7,
+      "replies_received": 3,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "spotify": 1
+      },
+      "messages_by_year": {
+        "2019": 1,
+        "2020": 9,
+        "2021": 5,
+        "2022": 5
+      },
+      "pct_messages": 0.3768607499528924,
+      "pct_links": 0.0755287009063444,
+      "pct_reactions": 0.0,
+      "pct_replies": 0.395778364116095,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 20,
+          "stat_label": "messages sent",
+          "subtitle": "That's 0.4% of all messages",
+          "rank": 24,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 1,
+          "stat_label": "songs shared",
+          "subtitle": "0.1% of all music in the group",
+          "rank": 22,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 1,
+          "total_links": 1,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 3,
+          "stat_label": "replies to your messages",
+          "subtitle": "0.4% of all replies",
+          "rank": 22,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 7,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 0.9% of conversations going",
+          "rank": 22,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 20,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "years_count": 4,
+          "first_year": 2019,
+          "last_year": 2022,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 20,
+          "links": 1,
+          "reactions": 0,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Tiny dancer": {
+      "messages": 68,
+      "music_links": 2,
+      "reactions_received": 10,
+      "replies_sent": 3,
+      "replies_received": 10,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "spotify": 2
+      },
+      "messages_by_year": {
+        "2020": 7,
+        "2021": 13,
+        "2022": 25,
+        "2023": 5,
+        "2024": 14,
+        "2025": 4
+      },
+      "pct_messages": 1.2813265498398343,
+      "pct_links": 0.1510574018126888,
+      "pct_reactions": 1.6835016835016834,
+      "pct_replies": 1.3192612137203166,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 68,
+          "stat_label": "messages sent",
+          "subtitle": "That's 1.3% of all messages",
+          "rank": 16,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 2,
+          "stat_label": "songs shared",
+          "subtitle": "0.2% of all music in the group",
+          "rank": 21,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 2,
+          "total_links": 2,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 10,
+          "stat_label": "reactions received",
+          "subtitle": "1.7% of all reactions",
+          "rank": 14,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 10,
+          "stat_label": "replies to your messages",
+          "subtitle": "1.3% of all replies",
+          "rank": 18,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 21,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 6,
+          "first_year": 2020,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 68,
+          "links": 2,
+          "reactions": 10,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Barrett": {
+      "messages": 111,
+      "music_links": 59,
+      "reactions_received": 18,
+      "replies_sent": 11,
+      "replies_received": 26,
+      "longest_streak": 3,
+      "links_by_platform": {
+        "spotify": 56,
+        "youtube": 2,
+        "soundcloud": 1
+      },
+      "messages_by_year": {
+        "2020": 28,
+        "2021": 32,
+        "2022": 26,
+        "2023": 8,
+        "2024": 7,
+        "2025": 9,
+        "2026": 1
+      },
+      "pct_messages": 2.091577162238553,
+      "pct_links": 4.45619335347432,
+      "pct_reactions": 3.0303030303030303,
+      "pct_replies": 3.430079155672823,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 111,
+          "stat_label": "messages sent",
+          "subtitle": "That's 2.1% of all messages",
+          "rank": 13,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 59,
+          "stat_label": "songs shared",
+          "subtitle": "4.5% of all music in the group",
+          "rank": 8,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 56,
+          "total_links": 59,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 18,
+          "stat_label": "reactions received",
+          "subtitle": "3.0% of all reactions",
+          "rank": 10,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 26,
+          "stat_label": "replies to your messages",
+          "subtitle": "3.4% of all replies",
+          "rank": 9,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 11,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 1.5% of conversations going",
+          "rank": 19,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 3,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 13,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "years_count": 7,
+          "first_year": 2020,
+          "last_year": 2026,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 111,
+          "links": 59,
+          "reactions": 18,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Hallie": {
+      "messages": 62,
+      "music_links": 10,
+      "reactions_received": 10,
+      "replies_sent": 12,
+      "replies_received": 13,
+      "longest_streak": 2,
+      "links_by_platform": {
+        "spotify": 10
+      },
+      "messages_by_year": {
+        "2020": 1,
+        "2021": 11,
+        "2022": 5,
+        "2023": 18,
+        "2024": 18,
+        "2025": 9
+      },
+      "pct_messages": 1.1682683248539665,
+      "pct_links": 0.7552870090634441,
+      "pct_reactions": 1.6835016835016834,
+      "pct_replies": 1.7150395778364116,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 62,
+          "stat_label": "messages sent",
+          "subtitle": "That's 1.2% of all messages",
+          "rank": 17,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 10,
+          "stat_label": "songs shared",
+          "subtitle": "0.8% of all music in the group",
+          "rank": 16,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "Spotify",
+          "count": 10,
+          "total_links": 10,
+          "emoji": "\ud83d\udc9a"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 10,
+          "stat_label": "reactions received",
+          "subtitle": "1.7% of all reactions",
+          "rank": 15,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 13,
+          "stat_label": "replies to your messages",
+          "subtitle": "1.7% of all replies",
+          "rank": 17,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 12,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 1.6% of conversations going",
+          "rank": 18,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 2,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 22,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "years_count": 6,
+          "first_year": 2020,
+          "last_year": 2025,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 62,
+          "links": 10,
+          "reactions": 10,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Carl Horwitz": {
+      "messages": 138,
+      "music_links": 49,
+      "reactions_received": 59,
+      "replies_sent": 32,
+      "replies_received": 17,
+      "longest_streak": 3,
+      "links_by_platform": {
+        "youtube": 33,
+        "spotify": 15,
+        "bandcamp": 1
+      },
+      "messages_by_year": {
+        "2022": 5,
+        "2023": 30,
+        "2024": 43,
+        "2025": 58,
+        "2026": 2
+      },
+      "pct_messages": 2.6003391746749576,
+      "pct_links": 3.7009063444108756,
+      "pct_reactions": 9.932659932659933,
+      "pct_replies": 2.242744063324538,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 138,
+          "stat_label": "messages sent",
+          "subtitle": "That's 2.6% of all messages",
+          "rank": 12,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "Music Curator",
+          "stat": 49,
+          "stat_label": "songs shared",
+          "subtitle": "3.7% of all music in the group",
+          "rank": 9,
+          "total_users": 24,
+          "emoji": "\ud83c\udfb5"
+        },
+        {
+          "type": "platform",
+          "title": "Your Go-To Platform",
+          "platform": "YouTube",
+          "count": 33,
+          "total_links": 49,
+          "emoji": "\ud83d\udd34"
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 59,
+          "stat_label": "reactions received",
+          "subtitle": "9.9% of all reactions",
+          "rank": 4,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 17,
+          "stat_label": "replies to your messages",
+          "subtitle": "2.2% of all replies",
+          "rank": 13,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 32,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 4.2% of conversations going",
+          "rank": 12,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 3,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 14,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "timeline",
+          "title": "Your Timeline",
+          "years": [
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "years_count": 5,
+          "first_year": 2022,
+          "last_year": 2026,
+          "emoji": "\ud83d\udcc5"
+        },
+        {
+          "type": "leaderboard_highlight",
+          "title": "#1 YouTube DJ",
+          "rank": 1,
+          "value": 33,
+          "board_name": "YouTube DJ",
+          "emoji": "\ud83d\udd34"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 138,
+          "links": 49,
+          "reactions": 59,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    },
+    "Mixtape": {
+      "messages": 25,
+      "music_links": 0,
+      "reactions_received": 6,
+      "replies_sent": 25,
+      "replies_received": 1,
+      "longest_streak": 4,
+      "links_by_platform": {},
+      "messages_by_year": {
+        "2025": 25
+      },
+      "pct_messages": 0.4710759374411155,
+      "pct_links": 0.0,
+      "pct_reactions": 1.0101010101010102,
+      "pct_replies": 0.13192612137203166,
+      "cards": [
+        {
+          "type": "intro",
+          "title": "Your Music Rec Journey",
+          "stat": 25,
+          "stat_label": "messages sent",
+          "subtitle": "That's 0.5% of all messages",
+          "rank": 22,
+          "total_users": 24
+        },
+        {
+          "type": "stat",
+          "title": "The People Loved It",
+          "stat": 6,
+          "stat_label": "reactions received",
+          "subtitle": "1.0% of all reactions",
+          "rank": 20,
+          "total_users": 24,
+          "emoji": "\u2764\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Conversation Starter",
+          "stat": 1,
+          "stat_label": "replies to your messages",
+          "subtitle": "0.1% of all replies",
+          "rank": 24,
+          "total_users": 24,
+          "emoji": "\ud83d\udcac"
+        },
+        {
+          "type": "stat",
+          "title": "Reply Champion",
+          "stat": 25,
+          "stat_label": "replies sent",
+          "subtitle": "You kept 3.3% of conversations going",
+          "rank": 14,
+          "total_users": 24,
+          "emoji": "\ud83d\udde3\ufe0f"
+        },
+        {
+          "type": "stat",
+          "title": "Streak Master",
+          "stat": 4,
+          "stat_label": "days in a row",
+          "subtitle": "Your longest streak of daily messages",
+          "rank": 7,
+          "total_users": 24,
+          "emoji": "\ud83d\udd25"
+        },
+        {
+          "type": "outro",
+          "title": "Keep Sharing",
+          "messages": 25,
+          "links": 0,
+          "reactions": 6,
+          "emoji": "\ud83c\udfb6"
+        }
+      ]
+    }
+  }
+}
