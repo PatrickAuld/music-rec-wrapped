@@ -31,13 +31,6 @@ function getGradient(index: number, card: Card): string {
   return cardGradients[index % cardGradients.length];
 }
 
-function getRankSuffix(rank: number): string {
-  if (rank === 1) return 'st';
-  if (rank === 2) return 'nd';
-  if (rank === 3) return 'rd';
-  return 'th';
-}
-
 export default function WrappedCard({ card, userName, cardIndex, totalCards }: WrappedCardProps) {
   const gradient = getGradient(cardIndex, card);
 

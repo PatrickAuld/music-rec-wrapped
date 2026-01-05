@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useMemo, useState } from 'react';
 import data from '../data.json';
 import { WrappedData } from '../types';
 
@@ -27,8 +30,18 @@ function slugify(name: string): string {
 }
 
 export default function Home() {
-  const users = Object.entries(wrappedData.users)
-    .sort((a, b) => b[1].messages - a[1].messages);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const users = useMemo(() => (
+    Object.entries(wrappedData.users)
+      .sort((a, b) => b[1].messages - a[1].messages)
+  ), []);
+
+  const filteredUsers = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return users;
+    return users.filter(([name]) => name.toLowerCase().includes(query));
+  }, [searchQuery, users]);
 
   const topLevel = wrappedData.top_level;
 
@@ -64,31 +77,59 @@ export default function Home() {
         <h2 className="text-lg font-semibold mb-4 text-gray-300">
           Choose your Wrapped
         </h2>
+        <div className="mb-4">
+          <label htmlFor="user-search" className="sr-only">Search users</label>
+          <div className="glass rounded-xl flex items-center px-3 py-2 gap-2">
+            <input
+              id="user-search"
+              type="search"
+              placeholder="Search users..."
+              className="w-full bg-transparent focus:outline-none text-sm placeholder:text-gray-400"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="text-gray-400 text-xs hover:text-white transition-colors"
+                onClick={() => setSearchQuery('')}
+              >
+                Clear
+              </button>
+            )}
+          </div>
+        </div>
         <div className="space-y-3">
-          {users.map(([name, user], index) => (
-            <Link
-              key={name}
-              href={`/wrapped/${slugify(name)}`}
-              className="block animate-fade-in"
-              style={{
-                opacity: 0,
-                animationDelay: `${0.3 + index * 0.05}s`
-              }}
-            >
-              <div className={`user-card rounded-2xl p-4 bg-gradient-to-r ${gradients[index % gradients.length]} flex items-center gap-4`}>
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center font-bold text-lg">
-                  {getInitials(name)}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold truncate">{name}</div>
-                  <div className="text-sm text-white/80">
-                    {user.messages} messages &bull; {user.music_links} songs
+          {filteredUsers.length === 0 ? (
+            <div className="text-center text-gray-400 text-sm py-6 glass rounded-2xl">
+              No users found. Try a different name.
+            </div>
+          ) : (
+            filteredUsers.map(([name, user], index) => (
+              <Link
+                key={name}
+                href={`/wrapped/${slugify(name)}`}
+                className="block animate-fade-in"
+                style={{
+                  opacity: 0,
+                  animationDelay: `${0.3 + index * 0.05}s`
+                }}
+              >
+                <div className={`user-card rounded-2xl p-4 bg-gradient-to-r ${gradients[index % gradients.length]} flex items-center gap-4`}>
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center font-bold text-lg">
+                    {getInitials(name)}
                   </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold truncate">{name}</div>
+                    <div className="text-sm text-white/80">
+                      {user.messages} messages &bull; {user.music_links} songs
+                    </div>
+                  </div>
+                  <div className="text-2xl">→</div>
                 </div>
-                <div className="text-2xl">→</div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))
+          )}
         </div>
       </div>
 

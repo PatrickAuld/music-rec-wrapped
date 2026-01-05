@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { User } from '../types';
 import WrappedCard from './WrappedCard';
@@ -205,13 +206,13 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
       </button>
 
       {/* Home button */}
-      <a
+      <Link
         href="/"
         onClick={(e) => e.stopPropagation()}
         className="fixed top-4 left-4 z-20 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-xl"
       >
         ←
-      </a>
+      </Link>
 
       {/* Swipe hint (only on first card) */}
       {currentIndex === 0 && (
