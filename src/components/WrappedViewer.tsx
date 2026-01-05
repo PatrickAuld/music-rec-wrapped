@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { User } from '../types';
 import WrappedCard from './WrappedCard';
 import html2canvas from 'html2canvas';
+import AbstractBackground from './AbstractBackground';
 
 interface WrappedViewerProps {
   user: User;
@@ -154,13 +155,14 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
 
   return (
     <div
-      className="fixed inset-0 overflow-hidden"
+      className="fixed inset-0 overflow-hidden relative"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onClick={handleClick}
     >
+      <AbstractBackground variant="viewer" />
       {/* Current card */}
-      <div className="h-full">
+      <div className="h-full relative z-10">
         <WrappedCard
           key={currentIndex}
           card={cards[currentIndex]}

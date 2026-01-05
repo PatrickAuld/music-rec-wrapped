@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import data from '../data.json';
 import { WrappedData } from '../types';
+import AbstractBackground from '../components/AbstractBackground';
 
 const wrappedData = data as unknown as WrappedData;
 
@@ -46,9 +47,10 @@ export default function Home() {
   const topLevel = wrappedData.top_level;
 
   return (
-    <main className="min-h-screen p-4 pb-20">
+    <main className="min-h-screen p-4 pb-20 relative overflow-hidden">
+      <AbstractBackground variant="landing" />
       {/* Header */}
-      <div className="text-center py-8 animate-fade-in">
+      <div className="relative z-10 text-center py-8 animate-fade-in">
         <h1 className="text-4xl md:text-6xl font-bold mb-2">
           Music Rec
         </h1>
@@ -61,7 +63,7 @@ export default function Home() {
       </div>
 
       {/* Stats summary */}
-      <div className="grid grid-cols-2 gap-3 max-w-md mx-auto mb-8 animate-fade-in delay-200" style={{ opacity: 0 }}>
+      <div className="relative z-10 grid grid-cols-2 gap-3 max-w-md mx-auto mb-8 animate-fade-in delay-200" style={{ opacity: 0 }}>
         <div className="glass rounded-2xl p-4 text-center">
           <div className="text-2xl font-bold">{topLevel.total_music_links.toLocaleString()}</div>
           <div className="text-sm text-gray-300">songs shared</div>
@@ -73,7 +75,7 @@ export default function Home() {
       </div>
 
       {/* User list */}
-      <div className="max-w-md mx-auto">
+      <div className="relative z-10 max-w-md mx-auto">
         <h2 className="text-lg font-semibold mb-4 text-gray-300">
           Choose your Wrapped
         </h2>
