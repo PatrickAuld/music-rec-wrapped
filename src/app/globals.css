@@ -105,11 +105,6 @@ body {
 .card-gradient-soundcloud { background: var(--gradient-soundcloud); }
 .card-gradient-youtube { background: var(--gradient-youtube); }
 
-.wrapped-card-bg {
-  background-size: 220% 220%;
-  animation: gradientShift 48s ease-in-out infinite;
-}
-
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
