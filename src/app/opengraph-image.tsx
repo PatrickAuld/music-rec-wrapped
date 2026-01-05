@@ -41,7 +41,7 @@ export default function Image() {
         />
 
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={{ fontSize: 28, opacity: 0.8 }}>Music Rec</div>
             <div style={{ fontSize: 64, fontWeight: 800, lineHeight: 1.05 }}>Wrapped 2025</div>
           </div>
@@ -62,8 +62,7 @@ export default function Image() {
           style={{
             position: 'relative',
             zIndex: 1,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+            display: 'flex',
             gap: 16,
           }}
         >
@@ -79,6 +78,7 @@ export default function Image() {
                 borderRadius: 24,
                 background: 'rgba(255,255,255,0.14)',
                 display: 'flex',
+                flex: 1,
                 flexDirection: 'column',
                 gap: 8,
                 boxShadow: '0 25px 60px rgba(0,0,0,0.18)',
