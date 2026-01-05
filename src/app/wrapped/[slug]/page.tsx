@@ -48,5 +48,5 @@ export default async function WrappedPage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
-  return <WrappedViewer user={result.user} userName={result.name} />;
+  return <WrappedViewer user={result.user} userName={result.name} leaderboards={wrappedData.leaderboards} />;
 }

@@ -9,11 +9,12 @@ import html2canvas from 'html2canvas';
 interface WrappedViewerProps {
   user: User;
   userName: string;
+  leaderboards: WrappedData['leaderboards'];
 }
 
 const AUTO_ADVANCE_MS = 30000; // 30 seconds
 
-export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
+export default function WrappedViewer({ user, userName, leaderboards }: WrappedViewerProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
@@ -167,6 +168,7 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
           userName={userName}
           cardIndex={currentIndex}
           totalCards={totalCards}
+          leaderboards={leaderboards}
         />
       </div>
 

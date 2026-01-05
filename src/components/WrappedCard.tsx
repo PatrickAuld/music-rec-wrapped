@@ -1,13 +1,24 @@
 'use client';
 
-import { Card } from '../types';
+import { Card, Leaderboards, LeaderboardEntry } from '../types';
 
 interface WrappedCardProps {
   card: Card;
   userName: string;
   cardIndex: number;
   totalCards: number;
+  leaderboards: Leaderboards;
 }
+
+const leaderboardKeyMap: Record<string, keyof Leaderboards> = {
+  'Most Messages': 'messages',
+  'Music Curator': 'music_links',
+  'Most Loved': 'reactions_received',
+  'Reply Champion': 'replies_sent',
+  'YouTube DJ': 'youtube',
+};
+
+const TOP_POSITIONS_COUNT = 3;
 
 const cardGradients = [
   'from-purple-600 to-pink-500',
@@ -31,8 +42,18 @@ function getGradient(index: number, card: Card): string {
   return cardGradients[index % cardGradients.length];
 }
 
-export default function WrappedCard({ card, userName, cardIndex, totalCards }: WrappedCardProps) {
+function getScoreboardEntries(card: Card, leaderboards: Leaderboards): LeaderboardEntry[] | undefined {
+  if (card.type !== 'leaderboard_highlight' || !card.board_name) return undefined;
+
+  const key = leaderboardKeyMap[card.board_name];
+  if (!key) return undefined;
+
+  return leaderboards[key];
+}
+
+export default function WrappedCard({ card, userName, cardIndex, totalCards, leaderboards }: WrappedCardProps) {
   const gradient = getGradient(cardIndex, card);
+  const scoreboardEntries = getScoreboardEntries(card, leaderboards);
 
   return (
     <div
@@ -164,6 +185,64 @@ export default function WrappedCard({ card, userName, cardIndex, totalCards }: W
             <div className="mt-4 text-white/70">
               {card.value?.toLocaleString()} total
             </div>
+            {scoreboardEntries && (
+              <div className="mt-8 space-y-4 text-left max-w-md mx-auto">
+                <div>
+                  <div className="text-xs uppercase tracking-widest text-white/70">
+                    Top {TOP_POSITIONS_COUNT} positions
+                  </div>
+                  <div className="mt-2 space-y-2">
+                    {scoreboardEntries.slice(0, TOP_POSITIONS_COUNT).map(([name, value, rank]) => {
+                      const isCurrentUser = name === userName;
+                      return (
+                        <div
+                          key={`${name}-${rank}`}
+                          className={`bg-white/15 rounded-xl px-4 py-3 flex items-center justify-between gap-3 ${isCurrentUser ? 'border-2 border-white/80 shadow-lg' : ''}`}
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold">
+                              #{rank}
+                            </div>
+                            <div className="min-w-0">
+                              <div className={`font-semibold truncate ${isCurrentUser ? 'text-white' : ''}`}>
+                                {name}
+                              </div>
+                              <div className="text-sm text-white/80">{value.toLocaleString()} pts</div>
+                            </div>
+                          </div>
+                          {isCurrentUser && (
+                            <span className="text-xs px-2 py-1 rounded-full bg-white/25 font-semibold">You</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {scoreboardEntries.length > TOP_POSITIONS_COUNT && (
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <div className="text-xs uppercase tracking-widest text-white/70 mb-2">Other users on the board</div>
+                    <div className="space-y-1">
+                      {scoreboardEntries.slice(TOP_POSITIONS_COUNT).map(([name, value, rank]) => {
+                        const isCurrentUser = name === userName;
+                        return (
+                          <div
+                            key={`${name}-${rank}`}
+                            className={`flex items-center justify-between text-sm ${isCurrentUser ? 'font-semibold text-white' : 'text-white/90'}`}
+                          >
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="w-7 text-white/70">#{rank}</span>
+                              <span className="truncate">{name}</span>
+                            </div>
+                            <span className="text-white/80">{value.toLocaleString()} pts</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         )}
 
