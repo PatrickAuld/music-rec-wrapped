@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { User } from '../types';
 import WrappedCard from './WrappedCard';
 import html2canvas from 'html2canvas';
@@ -16,9 +15,6 @@ interface WrappedViewerProps {
 const AUTO_ADVANCE_MS = 30000; // 30 seconds
 
 export default function WrappedViewer({ user, userName, initialCardIndex = 0 }: WrappedViewerProps) {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
   const [currentIndex, setCurrentIndex] = useState(() => Math.min(Math.max(initialCardIndex, 0), user.cards.length - 1));
   const [isPaused, setIsPaused] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
@@ -37,47 +33,25 @@ export default function WrappedViewer({ user, userName, initialCardIndex = 0 }: 
     setCurrentIndex((prev) => (prev - 1 + totalCards) % totalCards);
   }, [totalCards]);
 
-  const parseCardParam = useCallback(() => {
-    const param = searchParams.get('card');
-    const parsed = Number.parseInt(param ?? '', 10);
-
-    if (!Number.isFinite(parsed)) {
-      return null;
-    }
-
-    return Math.min(totalCards - 1, Math.max(0, parsed - 1));
-  }, [searchParams, totalCards]);
-
-  // Sync URL param -> state when it changes externally
+  // Ensure the URL stays in sync without triggering a navigation
   useEffect(() => {
-    const paramIndex = parseCardParam();
-    if (paramIndex !== null && paramIndex !== currentIndex) {
-      setCurrentIndex(paramIndex);
-    }
-  }, [currentIndex, parseCardParam]);
+    if (typeof window === 'undefined') return;
 
-  // Sync state -> URL param
-  useEffect(() => {
-    const desiredCard = currentIndex + 1;
-    const params = new URLSearchParams(searchParams.toString());
-    const currentParam = parseCardParam();
+    const desiredCard = (currentIndex + 1).toString();
+    const url = new URL(window.location.href);
 
-    if (currentParam === desiredCard - 1) return;
+    if (url.searchParams.get('card') === desiredCard) return;
 
-    params.set('card', desiredCard.toString());
-    const paramsString = params.toString();
-    router.replace(paramsString ? `${pathname}?${paramsString}` : pathname, { scroll: false });
-  }, [currentIndex, pathname, router, searchParams, parseCardParam]);
+    url.searchParams.set('card', desiredCard);
+    window.history.replaceState(null, '', url.toString());
+  }, [currentIndex]);
 
   const getShareUrl = useCallback(() => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set('card', (currentIndex + 1).toString());
-    const paramsString = params.toString();
-    const basePath = paramsString ? `${pathname}?${paramsString}` : pathname;
-
-    if (typeof window === 'undefined') return basePath;
-    return `${window.location.origin}${basePath}`;
-  }, [currentIndex, pathname, searchParams]);
+    if (typeof window === 'undefined') return '';
+    const url = new URL(window.location.href);
+    url.searchParams.set('card', (currentIndex + 1).toString());
+    return url.toString();
+  }, [currentIndex]);
 
   // Auto-advance timer
   useEffect(() => {
