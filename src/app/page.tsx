@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import data from '../data.json';
 import { WrappedData } from '../types';
-import AbstractBackground from '../components/AbstractBackground';
 
 const wrappedData = data as unknown as WrappedData;
 
@@ -47,8 +46,7 @@ export default function Home() {
   const topLevel = wrappedData.top_level;
 
   return (
-    <main className="min-h-screen p-4 pb-20 relative overflow-hidden">
-      <AbstractBackground variant="landing" />
+    <main className="min-h-screen p-4 pb-20">
       {/* Header */}
       <div className="relative z-10 text-center py-8 animate-fade-in">
         <h1 className="text-4xl md:text-6xl font-bold mb-2">

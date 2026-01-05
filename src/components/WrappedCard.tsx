@@ -37,7 +37,7 @@ export default function WrappedCard({ card, userName, cardIndex, totalCards }: W
   return (
     <div
       id={`card-${cardIndex}`}
-      className={`min-h-[100dvh] w-full bg-gradient-to-br ${gradient} flex flex-col justify-between p-6 relative overflow-hidden`}
+      className={`min-h-[100dvh] w-full bg-gradient-to-br ${gradient} wrapped-card-bg flex flex-col justify-between p-6 relative overflow-hidden`}
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
