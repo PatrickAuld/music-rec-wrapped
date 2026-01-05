@@ -27,17 +27,18 @@ export async function generateMetadata({
   params,
   searchParams,
 }: {
-  params: { slug: string };
-  searchParams?: { card?: string };
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ card?: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const result = findUserBySlug(slug);
 
   if (!result) {
     return { title: 'Not Found' };
   }
 
-  const cardParam = Number.parseInt(searchParams?.card ?? '', 10);
+  const cardParam = Number.parseInt(resolvedSearchParams?.card ?? '', 10);
   const cardIndex = Number.isFinite(cardParam) ? Math.max(1, Math.min(cardParam, result.user.cards.length)) : 1;
   const imageUrl = `/wrapped/${slug}/opengraph-image?card=${cardIndex}`;
   const title = `${result.name}'s Music Rec Wrapped`;
@@ -66,17 +67,18 @@ export default async function WrappedPage({
   params,
   searchParams,
 }: {
-  params: { slug: string };
-  searchParams?: { card?: string };
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ card?: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const result = findUserBySlug(slug);
 
   if (!result) {
     notFound();
   }
 
-  const initialCard = Number.parseInt(searchParams?.card ?? '', 10);
+  const initialCard = Number.parseInt(resolvedSearchParams?.card ?? '', 10);
   const initialCardIndex = Number.isFinite(initialCard) ? Math.max(0, Math.min(result.user.cards.length - 1, initialCard - 1)) : 0;
 
   return (
