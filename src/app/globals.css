@@ -50,13 +50,17 @@ body {
 
 .blob {
   position: absolute;
+  display: block;
   width: clamp(18rem, 40vw, 32rem);
   aspect-ratio: 1;
   border-radius: 9999px;
   filter: blur(70px);
   opacity: 0.3;
   mix-blend-mode: screen;
-  animation: float 22s ease-in-out infinite;
+  background-size: 180% 180%;
+  animation:
+    float 22s ease-in-out infinite,
+    sweep 32s ease-in-out infinite alternate;
 }
 
 .abstract-bg--viewer .blob {
@@ -136,6 +140,14 @@ body {
   0% { transform: translate3d(0, 0, 0) scale(1); }
   50% { transform: translate3d(12px, -18px, 0) scale(1.05); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes sweep {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 60%; }
+  50% { background-position: 100% 45%; }
+  75% { background-position: 55% 40%; }
+  100% { background-position: 0% 55%; }
 }
 
 .animate-fade-in {
