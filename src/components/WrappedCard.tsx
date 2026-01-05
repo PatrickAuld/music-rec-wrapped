@@ -7,6 +7,7 @@ interface WrappedCardProps {
   userName: string;
   cardIndex: number;
   totalCards: number;
+  progress: number;
 }
 
 const cardGradients = [
@@ -31,7 +32,7 @@ function getGradient(index: number, card: Card): string {
   return cardGradients[index % cardGradients.length];
 }
 
-export default function WrappedCard({ card, userName, cardIndex, totalCards }: WrappedCardProps) {
+export default function WrappedCard({ card, userName, cardIndex, totalCards, progress }: WrappedCardProps) {
   const gradient = getGradient(cardIndex, card);
 
   return (
@@ -202,10 +203,18 @@ export default function WrappedCard({ card, userName, cardIndex, totalCards }: W
           {Array.from({ length: totalCards }).map((_, i) => (
             <div
               key={i}
-              className={`flex-1 h-1 rounded-full transition-all duration-300 ${
-                i <= cardIndex ? 'bg-white' : 'bg-white/30'
-              }`}
-            />
+              className="relative flex-1 h-1 rounded-full bg-white/20 overflow-hidden"
+            >
+              <div
+                className="absolute inset-0 bg-white transition-[width] duration-200"
+                style={{
+                  width: `${Math.min(
+                    1,
+                    i < cardIndex ? 1 : i === cardIndex ? progress : 0
+                  ) * 100}%`,
+                }}
+              />
+            </div>
           ))}
         </div>
         <div className="text-center mt-3 text-white/60 text-sm">

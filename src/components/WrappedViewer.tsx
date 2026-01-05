@@ -17,9 +17,11 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
+  const [progress, setProgress] = useState(0);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  const elapsedRef = useRef(0);
 
   const cards = user.cards;
   const totalCards = cards.length;
@@ -32,13 +34,46 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
     setCurrentIndex((prev) => (prev - 1 + totalCards) % totalCards);
   }, [totalCards]);
 
-  // Auto-advance timer
+  // Reset progress when the card changes
   useEffect(() => {
-    if (isPaused) return;
+    elapsedRef.current = 0;
+    setProgress(0);
+  }, [currentIndex]);
 
-    timerRef.current = setTimeout(goToNext, AUTO_ADVANCE_MS);
+  // Auto-advance timer & progress animation
+  useEffect(() => {
+    if (isPaused) {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+      return;
+    }
+
+    const startTime = performance.now() - elapsedRef.current;
+
+    const tick = () => {
+      const elapsed = performance.now() - startTime;
+      elapsedRef.current = elapsed;
+
+      const nextProgress = Math.min(elapsed / AUTO_ADVANCE_MS, 1);
+      setProgress(nextProgress);
+
+      if (nextProgress >= 1) {
+        goToNext();
+        return;
+      }
+
+      animationFrameRef.current = requestAnimationFrame(tick);
+    };
+
+    animationFrameRef.current = requestAnimationFrame(tick);
+
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
     };
   }, [currentIndex, isPaused, goToNext]);
 
@@ -167,6 +202,7 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
           userName={userName}
           cardIndex={currentIndex}
           totalCards={totalCards}
+          progress={progress}
         />
       </div>
 
