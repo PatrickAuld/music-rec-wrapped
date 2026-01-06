@@ -241,11 +241,15 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
   const rawLeaderboard = leaderboardKey ? leaderboards[leaderboardKey] : null;
   const leaderboardLabel = leaderboardKey ? leaderboardTitles[leaderboardKey] : null;
   const formattedLeaderboard = rawLeaderboard ? formatLeaderboard(rawLeaderboard, userName, card.rank) : null;
-  const showLeaderboardPanel =
-    formattedLeaderboard &&
-    formattedLeaderboard.userEntry &&
-    formattedLeaderboard.userEntry[2] <= 4;
-  const showStandaloneRank = !(showLeaderboardPanel && card.type === 'leaderboard_highlight');
+  const userRank = formattedLeaderboard?.userEntry?.[2];
+  const isUserTopFour = typeof userRank === 'number' && userRank <= 4;
+  const shouldShowLeaderboardPanel = !!(formattedLeaderboard && formattedLeaderboard.sortedEntries.length > 0);
+  const [isLeaderboardExpanded, setIsLeaderboardExpanded] = useState(isUserTopFour);
+  const showStandaloneRank = !(
+    shouldShowLeaderboardPanel &&
+    isLeaderboardExpanded &&
+    card.type === 'leaderboard_highlight'
+  );
 
   return (
     <div
@@ -307,13 +311,6 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
             )}
             {playfulMessage && (
               <div className="mt-3 text-sm text-white/80 max-w-xl mx-auto">{playfulMessage}</div>
-            )}
-            {card.rank && card.rank <= 10 && (
-              <div className="mt-4">
-                <span className="rank-badge">
-                  #{card.rank} in the group
-                </span>
-              </div>
             )}
           </div>
         )}
@@ -457,60 +454,99 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
         )}
 
         {/* Leaderboard display */}
-        {showLeaderboardPanel && formattedLeaderboard && formattedLeaderboard.sortedEntries.length > 0 && (
+        {shouldShowLeaderboardPanel && formattedLeaderboard && (
           <div className="mt-8 animate-fade-in max-w-xl mx-auto w-full">
             <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 shadow-lg">
               <div className="flex items-center justify-between mb-3 text-sm text-white/80">
                 <span>{leaderboardLabel ? `${leaderboardLabel} leaderboard` : 'Leaderboard'}</span>
-                {card.rank && (
-                  <span className="font-semibold">
-                    #{card.rank} position
-                  </span>
-                )}
-              </div>
-              <div className="space-y-2 max-h-64 overflow-y-auto no-scrollbar pr-1">
-                {formattedLeaderboard.sortedEntries.map(([name, value, rank]) => {
-                  const isUser = name === userName;
-                  const sharesRank = card.rank && rank === card.rank;
-                  const widthPercent = formattedLeaderboard.maxValue
-                    ? Math.max(6, (value / formattedLeaderboard.maxValue) * 100)
-                    : 0;
-                  const barClass = isUser ? 'bg-slate-900/80' : 'bg-white/70';
-                  return (
-                    <div
-                      key={`${name}-${rank}`}
-                      className={`p-2 rounded-xl ${isUser ? 'bg-gradient-to-r from-pink-300/80 via-amber-200/80 to-cyan-200/80 text-slate-900 shadow-lg ring-2 ring-white/60' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
+                <div className="flex items-center gap-3">
+                  {card.rank && (
+                    <span className="font-semibold">
+                      #{card.rank} position
+                    </span>
+                  )}
+                  {!isUserTopFour && (
+                    <button
+                      type="button"
+                      className="px-3 py-1 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsLeaderboardExpanded((prev) => !prev);
+                      }}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-8 text-center font-bold ${isUser ? 'text-slate-900' : sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
-                          #{rank}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className={`truncate ${isUser ? 'font-semibold' : ''}`}>
-                            {name}
-                          </div>
-                          {sharesRank && !isUser && (
-                            <div className="text-xs text-white/70">Same position</div>
-                          )}
-                        </div>
-                        <div className="text-sm font-semibold text-white/90">
-                          {value.toLocaleString()}
-                        </div>
-                      </div>
-                      <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full ${barClass}`}
-                          style={{ width: `${widthPercent}%` }}
-                          aria-hidden="true"
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
+                      {isLeaderboardExpanded ? 'Hide' : 'Show'} leaderboard
+                    </button>
+                  )}
+                </div>
               </div>
-              {card.rank && (!formattedLeaderboard.userEntry || formattedLeaderboard.matchingRankEntries.length > 1) && (
-                <div className="mt-3 text-xs text-white/70">
-                  Showing everyone at position #{card.rank} and the rest of the board.
+              {isLeaderboardExpanded ? (
+                <>
+                  <div className="space-y-2 max-h-64 overflow-y-auto no-scrollbar pr-1">
+                    {formattedLeaderboard.sortedEntries.map(([name, value, rank]) => {
+                      const isUser = name === userName;
+                      const sharesRank = card.rank && rank === card.rank;
+                      const widthPercent = formattedLeaderboard.maxValue
+                        ? Math.max(6, (value / formattedLeaderboard.maxValue) * 100)
+                        : 0;
+                      const barClass = isUser ? 'bg-slate-900/80' : 'bg-white/70';
+                      return (
+                        <div
+                          key={`${name}-${rank}`}
+                          className={`p-2 rounded-xl ${isUser ? 'bg-gradient-to-r from-pink-300/80 via-amber-200/80 to-cyan-200/80 text-slate-900 shadow-lg ring-2 ring-white/60' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className={`w-8 text-center font-bold ${isUser ? 'text-slate-900' : sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
+                              #{rank}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className={`truncate ${isUser ? 'font-semibold' : ''}`}>
+                                {name}
+                              </div>
+                              {sharesRank && !isUser && (
+                                <div className="text-xs text-white/70">Same position</div>
+                              )}
+                            </div>
+                            <div className="text-sm font-semibold text-white/90">
+                              {value.toLocaleString()}
+                            </div>
+                          </div>
+                          <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
+                            <div
+                              className={`h-full ${barClass}`}
+                              style={{ width: `${widthPercent}%` }}
+                              aria-hidden="true"
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {card.rank && (!formattedLeaderboard.userEntry || formattedLeaderboard.matchingRankEntries.length > 1) && (
+                    <div className="mt-3 text-xs text-white/70">
+                      Showing everyone at position #{card.rank} and the rest of the board.
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="flex items-center justify-between gap-4 text-sm text-white/80">
+                  <div>
+                    <div className="font-semibold text-white">
+                      {typeof userRank === 'number' ? `You're #${userRank}` : 'Leaderboard ready'}
+                    </div>
+                    <div className="text-xs text-white/70 mt-1">
+                      Tap to see how everyone stacks up.
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="px-3 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsLeaderboardExpanded(true);
+                    }}
+                  >
+                    Expand
+                  </button>
                 </div>
               )}
             </div>
