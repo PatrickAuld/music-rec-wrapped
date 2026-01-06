@@ -64,25 +64,43 @@ const leaderboardMeta: Record<LeaderboardKey, { title: string; description: stri
 };
 
 function LeaderboardList({ entries, metricLabel }: { entries: LeaderboardEntry[]; metricLabel: string }) {
+  const maxValue = Math.max(...entries.map(([, value]) => value));
+
   return (
     <div className="space-y-3">
-      {entries.map(([name, value, rank]) => (
-        <div
-          key={`${name}-${rank}`}
-          className="glass rounded-xl px-4 py-3 flex items-center gap-4 bg-black/10"
-        >
-          <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center font-bold text-lg">
-            {rank}
+      {entries.map(([name, value, rank]) => {
+        const percent = Math.round((value / maxValue) * 100);
+
+        return (
+          <div
+            key={`${name}-${rank}`}
+            className="glass rounded-xl px-4 py-3 bg-black/10"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center font-bold text-lg">
+                {rank}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="font-semibold truncate">{name}</div>
+                <div className="text-xs text-white/70 truncate capitalize">{metricLabel}</div>
+              </div>
+              <div className="text-right font-semibold text-white">
+                {value.toLocaleString()}
+              </div>
+            </div>
+            <div className="mt-3 h-2 rounded-full bg-white/10 overflow-hidden ring-1 ring-white/15">
+              <div
+                className="h-full bg-gradient-to-r from-white to-white/70"
+                style={{ width: `${percent}%` }}
+                aria-hidden
+              />
+            </div>
+            <div className="mt-1 flex justify-end text-[11px] text-white/60">
+              <span>{percent}% of leader peak</span>
+            </div>
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="font-semibold truncate">{name}</div>
-            <div className="text-xs text-white/70 truncate capitalize">{metricLabel}</div>
-          </div>
-          <div className="text-right font-semibold text-white">
-            {value.toLocaleString()}
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
