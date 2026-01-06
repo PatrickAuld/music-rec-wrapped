@@ -1,8 +1,7 @@
 'use client';
 
-import { Card, LeaderboardEntry, LeaderboardKey, Leaderboards } from '../types';
 import { useEffect, useMemo, useState } from 'react';
-import { Card } from '../types';
+import { Card, LeaderboardEntry, LeaderboardKey, Leaderboards } from '../types';
 
 interface WrappedCardProps {
   card: Card;
@@ -92,17 +91,6 @@ function formatLeaderboard(entries: LeaderboardEntry[], userName: string, userRa
   };
 }
 
-export default function WrappedCard({ card, userName, leaderboards, cardIndex, totalCards, progress }: WrappedCardProps) {
-  const gradient = getGradient(cardIndex, card);
-  const leaderboardKey = getLeaderboardKeyForCard(card);
-  const rawLeaderboard = leaderboardKey ? leaderboards[leaderboardKey] : null;
-  const leaderboardLabel = leaderboardKey ? leaderboardTitles[leaderboardKey] : null;
-  const formattedLeaderboard = rawLeaderboard ? formatLeaderboard(rawLeaderboard, userName, card.rank) : null;
-  const showLeaderboardPanel =
-    formattedLeaderboard &&
-    formattedLeaderboard.userEntry &&
-    formattedLeaderboard.userEntry[2] <= 4;
-  const showStandaloneRank = !(showLeaderboardPanel && card.type === 'leaderboard_highlight');
 function getCardPercentage(card: Card): number | null {
   if (card.type === 'platform' && card.count && card.total_links) {
     return Math.min(100, Math.round(((card.count / card.total_links) * 100 + Number.EPSILON) * 10) / 10);
@@ -242,11 +230,21 @@ function AnimatedCalloutGraph({ percentage, label, detail, variant }: AnimatedCa
   );
 }
 
-export default function WrappedCard({ card, userName, cardIndex, totalCards, progress }: WrappedCardProps) {
+export default function WrappedCard({ card, userName, leaderboards, cardIndex, totalCards, progress }: WrappedCardProps) {
   const gradient = getGradient(cardIndex, card);
   const percentage = getCardPercentage(card);
   const graphVariant = useMemo(() => getGraphVariant(card.type, cardIndex), [card.type, cardIndex]);
   const playfulMessage = useMemo(() => getPlayfulMessage(card, percentage), [card, percentage]);
+
+  const leaderboardKey = getLeaderboardKeyForCard(card);
+  const rawLeaderboard = leaderboardKey ? leaderboards[leaderboardKey] : null;
+  const leaderboardLabel = leaderboardKey ? leaderboardTitles[leaderboardKey] : null;
+  const formattedLeaderboard = rawLeaderboard ? formatLeaderboard(rawLeaderboard, userName, card.rank) : null;
+  const showLeaderboardPanel =
+    formattedLeaderboard &&
+    formattedLeaderboard.userEntry &&
+    formattedLeaderboard.userEntry[2] <= 4;
+  const showStandaloneRank = !(showLeaderboardPanel && card.type === 'leaderboard_highlight');
 
   return (
     <div
