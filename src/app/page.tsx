@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState, type FormEvent } from 'react';
+import { useMemo, useState } from 'react';
 import data from '../data.json';
 import { WrappedData } from '../types';
 
@@ -30,24 +30,7 @@ function slugify(name: string): string {
 }
 
 export default function Home() {
-  const [isUnlocked, setIsUnlocked] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return localStorage.getItem('wrapped-access-granted') === 'true';
-  });
-  const [passwordInput, setPasswordInput] = useState('');
-  const [hasError, setHasError] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-
-  const handlePasswordSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (passwordInput === 'HearThat?') {
-      setIsUnlocked(true);
-      setHasError(false);
-      localStorage.setItem('wrapped-access-granted', 'true');
-    } else {
-      setHasError(true);
-    }
-  };
 
   const users = useMemo(() => (
     Object.entries(wrappedData.users)
@@ -61,40 +44,6 @@ export default function Home() {
   }, [searchQuery, users]);
 
   const topLevel = wrappedData.top_level;
-
-  if (!isUnlocked) {
-    return (
-      <main className="min-h-screen flex items-center justify-center p-4">
-        <div className="glass max-w-md w-full rounded-2xl p-8 text-center animate-fade-in" style={{ opacity: 0 }}>
-          <h1 className="text-3xl font-bold mb-2">Music Rec Wrapped</h1>
-          <p className="text-gray-300 mb-6">Enter the password to view the page.</p>
-          <form onSubmit={handlePasswordSubmit} className="space-y-4 text-left">
-            <div className="space-y-2">
-              <label htmlFor="password" className="block text-sm text-gray-300">Password</label>
-              <input
-                id="password"
-                type="password"
-                className="w-full glass rounded-xl px-4 py-3 bg-white/5 focus:outline-none focus:ring-2 focus:ring-pink-400"
-                value={passwordInput}
-                onChange={(event) => setPasswordInput(event.target.value)}
-                autoComplete="off"
-                required
-              />
-              {hasError && (
-                <p className="text-sm text-rose-300">Incorrect password. Please try again.</p>
-              )}
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold py-3 rounded-xl shadow-lg hover:scale-[1.01] transition-transform"
-            >
-              Unlock
-            </button>
-          </form>
-        </div>
-      </main>
-    );
-  }
 
   return (
     <main className="min-h-screen p-4 pb-20">
@@ -185,8 +134,15 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="text-center mt-12 text-gray-500 text-sm">
-        Music Rec Wrapped 2025
+      <div className="text-center mt-12 text-gray-500 text-sm space-y-2">
+        <div>Music Rec Wrapped 2025</div>
+        <Link
+          href="/leaderboards"
+          className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+        >
+          View all leaderboards
+          <span aria-hidden>→</span>
+        </Link>
       </div>
     </main>
   );

@@ -128,8 +128,8 @@ export default function WrappedViewer({ user, userName, leaderboards }: WrappedV
     const clickX = e.clientX - rect.left;
     const width = rect.width;
 
-    // Don't advance if clicking on buttons
-    if ((e.target as HTMLElement).closest('button')) return;
+    // Don't advance if clicking on buttons or links
+    if ((e.target as HTMLElement).closest('button, a')) return;
 
     if (clickX > width * 0.6) {
       goToNext();

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { Card, LeaderboardEntry, LeaderboardKey, Leaderboards } from '../types';
 
@@ -438,6 +439,16 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
                 <div className="text-2xl font-bold">{card.reactions}</div>
                 <div className="text-xs text-white/70">reactions</div>
               </div>
+            </div>
+            <div className="mt-8">
+              <Link
+                href="/leaderboards"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/20 text-white font-semibold hover:bg-white/30 transition-colors"
+              >
+                View all leaderboards
+                <span aria-hidden>→</span>
+              </Link>
             </div>
             <div className="mt-8 text-white/60 text-sm">
               Music Rec Wrapped 2025
