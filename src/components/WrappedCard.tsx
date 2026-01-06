@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
-import { Card } from '../types';
+import { Card, LeaderboardEntry, LeaderboardKey, Leaderboards } from '../types';
 
 interface WrappedCardProps {
   card: Card;
   userName: string;
+  leaderboards: Leaderboards;
   cardIndex: number;
   totalCards: number;
   progress: number;
@@ -23,6 +24,18 @@ const cardGradients = [
   'from-emerald-500 to-cyan-500',
 ];
 
+const leaderboardTitles: Record<LeaderboardKey, string> = {
+  messages: 'Messages',
+  music_links: 'Songs Shared',
+  reactions_received: 'Reactions Received',
+  replies_received: 'Replies to Your Messages',
+  replies_sent: 'Replies Sent',
+  longest_streak: 'Longest Streak',
+  spotify: 'Spotify Shares',
+  soundcloud: 'SoundCloud Shares',
+  youtube: 'YouTube Shares',
+};
+
 function getGradient(index: number, card: Card): string {
   if (card.type === 'platform') {
     const platform = card.platform?.toLowerCase() || '';
@@ -32,6 +45,51 @@ function getGradient(index: number, card: Card): string {
     if (platform.includes('bandcamp')) return 'from-cyan-500 to-blue-500';
   }
   return cardGradients[index % cardGradients.length];
+}
+
+function getLeaderboardKeyForCard(card: Card): LeaderboardKey | null {
+  if (card.type === 'intro') return 'messages';
+
+  if (card.type === 'stat') {
+    const label = card.stat_label?.toLowerCase();
+    if (label?.includes('songs shared')) return 'music_links';
+    if (label?.includes('reactions received')) return 'reactions_received';
+    if (label?.includes('replies to your messages')) return 'replies_received';
+    if (label?.includes('replies sent')) return 'replies_sent';
+    if (label?.includes('days in a row')) return 'longest_streak';
+  }
+
+  if (card.type === 'platform' && card.platform) {
+    const platform = card.platform.toLowerCase();
+    if (platform.includes('spotify')) return 'spotify';
+    if (platform.includes('soundcloud')) return 'soundcloud';
+    if (platform.includes('youtube')) return 'youtube';
+  }
+
+  if (card.type === 'leaderboard_highlight' && card.board_name) {
+    const boardName = card.board_name.toLowerCase();
+    if (boardName.includes('message')) return 'messages';
+    if (boardName.includes('music curator')) return 'music_links';
+    if (boardName.includes('loved')) return 'reactions_received';
+    if (boardName.includes('reply champion')) return 'replies_sent';
+    if (boardName.includes('youtube')) return 'youtube';
+  }
+
+  return null;
+}
+
+function formatLeaderboard(entries: LeaderboardEntry[], userName: string, userRank?: number) {
+  const sortedEntries = entries.slice().sort((a, b) => a[2] - b[2]);
+  const matchingRankEntries = userRank ? sortedEntries.filter(([, , rank]) => rank === userRank) : [];
+  const userEntry = sortedEntries.find(([name]) => name === userName);
+  const maxValue = sortedEntries.reduce((max, [, value]) => Math.max(max, value), 0);
+
+  return {
+    sortedEntries,
+    matchingRankEntries,
+    userEntry,
+    maxValue,
+  };
 }
 
 function getCardPercentage(card: Card): number | null {
@@ -173,11 +231,21 @@ function AnimatedCalloutGraph({ percentage, label, detail, variant }: AnimatedCa
   );
 }
 
-export default function WrappedCard({ card, userName, cardIndex, totalCards, progress }: WrappedCardProps) {
+export default function WrappedCard({ card, userName, leaderboards, cardIndex, totalCards, progress }: WrappedCardProps) {
   const gradient = getGradient(cardIndex, card);
   const percentage = getCardPercentage(card);
   const graphVariant = useMemo(() => getGraphVariant(card.type, cardIndex), [card.type, cardIndex]);
   const playfulMessage = useMemo(() => getPlayfulMessage(card, percentage), [card, percentage]);
+
+  const leaderboardKey = getLeaderboardKeyForCard(card);
+  const rawLeaderboard = leaderboardKey ? leaderboards[leaderboardKey] : null;
+  const leaderboardLabel = leaderboardKey ? leaderboardTitles[leaderboardKey] : null;
+  const formattedLeaderboard = rawLeaderboard ? formatLeaderboard(rawLeaderboard, userName, card.rank) : null;
+  const showLeaderboardPanel =
+    formattedLeaderboard &&
+    formattedLeaderboard.userEntry &&
+    formattedLeaderboard.userEntry[2] <= 4;
+  const showStandaloneRank = !(showLeaderboardPanel && card.type === 'leaderboard_highlight');
 
   return (
     <div
@@ -334,14 +402,19 @@ export default function WrappedCard({ card, userName, cardIndex, totalCards, pro
         {/* Leaderboard Highlight Card */}
         {card.type === 'leaderboard_highlight' && (
           <div className="text-center animate-fade-in">
-            <div className="card-emoji mb-4">{card.emoji}</div>
-            <div className="text-8xl md:text-9xl font-black mb-4 animate-scale-in">
-              #{card.rank}
-            </div>
+            <div className="card-emoji mb-3">{card.emoji}</div>
+            {showStandaloneRank && (
+              <div className="text-8xl md:text-9xl font-black mb-2 animate-scale-in">
+                #{card.rank}
+              </div>
+            )}
             <h2 className="text-2xl md:text-3xl font-bold">{card.board_name}</h2>
-            <div className="mt-4 text-white/70">
+            <div className="mt-2 text-white/80">
               {card.value?.toLocaleString()} total
             </div>
+            {!showStandaloneRank && card.rank && (
+              <div className="mt-1 text-sm text-white/70">Showing the full board for position #{card.rank}</div>
+            )}
           </div>
         )}
 
@@ -379,6 +452,67 @@ export default function WrappedCard({ card, userName, cardIndex, totalCards, pro
             </div>
             <div className="mt-8 text-white/60 text-sm">
               Music Rec Wrapped 2025
+            </div>
+          </div>
+        )}
+
+        {/* Leaderboard display */}
+        {showLeaderboardPanel && formattedLeaderboard && formattedLeaderboard.sortedEntries.length > 0 && (
+          <div className="mt-8 animate-fade-in max-w-xl mx-auto w-full">
+            <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 shadow-lg">
+              <div className="flex items-center justify-between mb-3 text-sm text-white/80">
+                <span>{leaderboardLabel ? `${leaderboardLabel} leaderboard` : 'Leaderboard'}</span>
+                {card.rank && (
+                  <span className="font-semibold">
+                    #{card.rank} position
+                  </span>
+                )}
+              </div>
+              <div className="space-y-2 max-h-64 overflow-y-auto no-scrollbar pr-1">
+                {formattedLeaderboard.sortedEntries.map(([name, value, rank]) => {
+                  const isUser = name === userName;
+                  const sharesRank = card.rank && rank === card.rank;
+                  const widthPercent = formattedLeaderboard.maxValue
+                    ? Math.max(6, (value / formattedLeaderboard.maxValue) * 100)
+                    : 0;
+                  const barClass = isUser ? 'bg-slate-900/80' : 'bg-white/70';
+                  return (
+                    <div
+                      key={`${name}-${rank}`}
+                      className={`p-2 rounded-xl ${isUser ? 'bg-gradient-to-r from-pink-300/80 via-amber-200/80 to-cyan-200/80 text-slate-900 shadow-lg ring-2 ring-white/60' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 text-center font-bold ${isUser ? 'text-slate-900' : sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
+                          #{rank}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className={`truncate ${isUser ? 'font-semibold' : ''}`}>
+                            {name}
+                          </div>
+                          {sharesRank && !isUser && (
+                            <div className="text-xs text-white/70">Same position</div>
+                          )}
+                        </div>
+                        <div className="text-sm font-semibold text-white/90">
+                          {value.toLocaleString()}
+                        </div>
+                      </div>
+                      <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full ${barClass}`}
+                          style={{ width: `${widthPercent}%` }}
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {card.rank && (!formattedLeaderboard.userEntry || formattedLeaderboard.matchingRankEntries.length > 1) && (
+                <div className="mt-3 text-xs text-white/70">
+                  Showing everyone at position #{card.rank} and the rest of the board.
+                </div>
+              )}
             </div>
           </div>
         )}
