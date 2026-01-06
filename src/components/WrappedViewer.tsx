@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { User } from '../types';
 import WrappedCard from './WrappedCard';
-import html2canvas from 'html2canvas';
 
 interface WrappedViewerProps {
   user: User;
@@ -16,7 +15,6 @@ const AUTO_ADVANCE_MS = 30000; // 30 seconds
 export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [isSharing, setIsSharing] = useState(false);
   const [progress, setProgress] = useState(0);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
@@ -26,19 +24,20 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
   const cards = user.cards;
   const totalCards = cards.length;
 
-  const goToNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % totalCards);
-  }, [totalCards]);
-
-  const goToPrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + totalCards) % totalCards);
-  }, [totalCards]);
-
-  // Reset progress when the card changes
-  useEffect(() => {
+  const resetProgress = useCallback(() => {
     elapsedRef.current = 0;
     setProgress(0);
-  }, [currentIndex]);
+  }, []);
+
+  const goToNext = useCallback(() => {
+    resetProgress();
+    setCurrentIndex((prev) => (prev + 1) % totalCards);
+  }, [resetProgress, totalCards]);
+
+  const goToPrev = useCallback(() => {
+    resetProgress();
+    setCurrentIndex((prev) => (prev - 1 + totalCards) % totalCards);
+  }, [resetProgress, totalCards]);
 
   // Auto-advance timer & progress animation
   useEffect(() => {
@@ -138,55 +137,6 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
     }
   };
 
-  // Share functionality
-  const handleShare = async () => {
-    setIsSharing(true);
-    setIsPaused(true);
-
-    try {
-      const cardElement = document.getElementById(`card-${currentIndex}`);
-      if (!cardElement) return;
-
-      const canvas = await html2canvas(cardElement, {
-        backgroundColor: null,
-        scale: 2,
-        useCORS: true,
-        logging: false,
-      });
-
-      const blob = await new Promise<Blob>((resolve) => {
-        canvas.toBlob((b) => resolve(b!), 'image/png', 1.0);
-      });
-
-      const file = new File([blob], `music-rec-wrapped-${userName.replace(/\s+/g, '-')}.png`, {
-        type: 'image/png',
-      });
-
-      if (navigator.share && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: 'Music Rec Wrapped',
-          text: `Check out my Music Rec Wrapped!`,
-        });
-      } else {
-        // Fallback: download the image
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = file.name;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }
-    } catch (error) {
-      console.error('Share failed:', error);
-    } finally {
-      setIsSharing(false);
-      setIsPaused(false);
-    }
-  };
-
   return (
     <div
       className="fixed inset-0 overflow-hidden"
@@ -204,30 +154,6 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
           totalCards={totalCards}
           progress={progress}
         />
-      </div>
-
-      {/* Navigation controls */}
-      <div className="fixed bottom-24 left-0 right-0 flex justify-center gap-4 z-20">
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            handleShare();
-          }}
-          disabled={isSharing}
-          className="share-btn bg-white/20 backdrop-blur-md px-6 py-3 rounded-full flex items-center gap-2 font-medium"
-        >
-          {isSharing ? (
-            <>
-              <span className="animate-spin">⏳</span>
-              Preparing...
-            </>
-          ) : (
-            <>
-              <span>📤</span>
-              Share
-            </>
-          )}
-        </button>
       </div>
 
       {/* Pause/play indicator */}

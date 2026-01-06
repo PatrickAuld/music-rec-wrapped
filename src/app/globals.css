@@ -155,15 +155,6 @@ body {
   opacity: 0;
 }
 
-/* Share button */
-.share-btn {
-  transition: all 0.2s ease;
-}
-
-.share-btn:active {
-  transform: scale(0.95);
-}
-
 /* Hide scrollbar but allow scroll */
 .no-scrollbar {
   -ms-overflow-style: none;
