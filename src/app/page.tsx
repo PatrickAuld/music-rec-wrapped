@@ -185,8 +185,15 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="text-center mt-12 text-gray-500 text-sm">
-        Music Rec Wrapped 2025
+      <div className="text-center mt-12 text-gray-500 text-sm space-y-2">
+        <div>Music Rec Wrapped 2025</div>
+        <Link
+          href="/leaderboards"
+          className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+        >
+          View all leaderboards
+          <span aria-hidden>→</span>
+        </Link>
       </div>
     </main>
   );
