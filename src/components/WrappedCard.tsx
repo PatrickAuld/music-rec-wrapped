@@ -459,25 +459,22 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
             <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 shadow-lg">
               <div className="flex items-center justify-between mb-3 text-sm text-white/80">
                 <span>{leaderboardLabel ? `${leaderboardLabel} leaderboard` : 'Leaderboard'}</span>
-                <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  aria-label={isLeaderboardExpanded ? 'Collapse leaderboard' : 'Expand leaderboard'}
+                  className="px-3 py-1 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition flex items-center gap-1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsLeaderboardExpanded((prev) => !prev);
+                  }}
+                >
+                  {isLeaderboardExpanded ? '▾' : '▸'}
                   {card.rank && (
                     <span className="font-semibold">
-                      #{card.rank} position
+                      #{card.rank}
                     </span>
                   )}
-                  {!isUserTopFour && (
-                    <button
-                      type="button"
-                      className="px-3 py-1 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsLeaderboardExpanded((prev) => !prev);
-                      }}
-                    >
-                      {isLeaderboardExpanded ? 'Hide' : 'Show'} leaderboard
-                    </button>
-                  )}
-                </div>
+                </button>
               </div>
               {isLeaderboardExpanded ? (
                 <>
@@ -537,16 +534,6 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
                       Tap to see how everyone stacks up.
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    className="px-3 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsLeaderboardExpanded(true);
-                    }}
-                  >
-                    Expand
-                  </button>
                 </div>
               )}
             </div>
