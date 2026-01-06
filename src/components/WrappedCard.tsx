@@ -44,6 +44,11 @@ function getGradient(index: number, card: Card): string {
     if (platform.includes('youtube')) return 'from-red-500 to-red-600';
     if (platform.includes('bandcamp')) return 'from-cyan-500 to-blue-500';
   }
+  // Spotify insight card gradients
+  if (card.type === 'genre_profile') return 'from-purple-600 to-pink-500';
+  if (card.type === 'audio_personality') return 'from-cyan-500 to-blue-600';
+  if (card.type === 'discovery_stats') return 'from-amber-500 to-orange-500';
+  if (card.type === 'decade_mix') return 'from-emerald-500 to-teal-500';
   return cardGradients[index % cardGradients.length];
 }
 
@@ -148,6 +153,53 @@ interface AnimatedCalloutGraphProps {
   label: string;
   detail?: string;
   variant: 'ring' | 'bar';
+}
+
+// Helper component for audio personality meters
+function AudioMeter({ label, value }: { label: string; value: number }) {
+  const [animatedValue, setAnimatedValue] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setAnimatedValue(value), 120);
+    return () => clearTimeout(timeout);
+  }, [value]);
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className="h-24 w-4 bg-white/20 rounded-full overflow-hidden flex flex-col-reverse">
+        <div
+          className="bg-white rounded-full transition-all duration-1000 ease-out"
+          style={{ height: `${animatedValue}%` }}
+        />
+      </div>
+      <div className="mt-2 text-sm font-semibold">{Math.round(animatedValue)}%</div>
+      <div className="text-xs text-white/70">{label}</div>
+    </div>
+  );
+}
+
+// Helper component for decade bars
+function DecadeBar({ decade, count, maxCount, index }: { decade: string; count: number; maxCount: number; index: number }) {
+  const [animatedWidth, setAnimatedWidth] = useState(0);
+  const targetWidth = (count / maxCount) * 100;
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setAnimatedWidth(targetWidth), 100 + index * 100);
+    return () => clearTimeout(timeout);
+  }, [targetWidth, index]);
+
+  return (
+    <div className="flex items-center gap-3 mb-2">
+      <div className="w-14 text-right text-sm font-semibold">{decade}</div>
+      <div className="flex-1 h-5 bg-white/20 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-white/80 rounded-full transition-all duration-700 ease-out"
+          style={{ width: `${animatedWidth}%` }}
+        />
+      </div>
+      <div className="w-8 text-sm text-white/70">{count}</div>
+    </div>
+  );
 }
 
 function AnimatedCalloutGraph({ percentage, label, detail, variant }: AnimatedCalloutGraphProps) {
@@ -411,6 +463,105 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
             </div>
             {!showStandaloneRank && card.rank && (
               <div className="mt-1 text-sm text-white/70">Showing the full board for position #{card.rank}</div>
+            )}
+          </div>
+        )}
+
+        {/* Genre Profile Card */}
+        {card.type === 'genre_profile' && (
+          <div className="text-center animate-fade-in">
+            <div className="card-emoji mb-4">{card.emoji}</div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">{card.title}</h2>
+            <div className="text-5xl md:text-6xl font-bold mb-4 capitalize">{card.top_genre}</div>
+            <div className="text-white/70 mb-6">Your signature sound</div>
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+              {card.genres?.slice(0, 6).map((genre, i) => (
+                <span
+                  key={genre}
+                  className="bg-white/20 px-4 py-2 rounded-full text-sm animate-scale-in capitalize"
+                  style={{ animationDelay: `${i * 0.1}s`, opacity: 0 }}
+                >
+                  {genre}
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 text-sm text-white/60">
+              {card.genre_count} unique genres explored
+            </div>
+          </div>
+        )}
+
+        {/* Audio Personality Card */}
+        {card.type === 'audio_personality' && (
+          <div className="text-center animate-fade-in">
+            <div className="card-emoji mb-4">{card.emoji}</div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">{card.title}</h2>
+            <div className="text-3xl md:text-4xl font-bold mb-8">{card.personality_label}</div>
+            <div className="grid grid-cols-3 gap-6 max-w-xs mx-auto">
+              <AudioMeter label="Dance" value={(card.danceability ?? 0.5) * 100} />
+              <AudioMeter label="Energy" value={(card.energy ?? 0.5) * 100} />
+              <AudioMeter label="Mood" value={(card.valence ?? 0.5) * 100} />
+            </div>
+            <div className="mt-6 text-sm text-white/70">
+              Avg tempo: {card.tempo_avg?.toFixed(0)} BPM
+            </div>
+          </div>
+        )}
+
+        {/* Discovery Stats Card */}
+        {card.type === 'discovery_stats' && (
+          <div className="text-center animate-fade-in">
+            <div className="card-emoji mb-4">{card.emoji}</div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">{card.title}</h2>
+            <div className="stat-number animate-count-up">{card.obscurity_score?.toFixed(0)}</div>
+            <div className="text-xl mt-2 text-white/90">Obscurity Score</div>
+            <div className="mt-4 text-white/70">
+              {(card.obscurity_score ?? 50) >= 70 ? "Deep cuts connoisseur" :
+               (card.obscurity_score ?? 50) >= 50 ? "Balanced explorer" : "Chart champion"}
+            </div>
+            {(card.oldest_track || card.newest_track) && (
+              <div className="mt-8 grid grid-cols-2 gap-4 max-w-sm mx-auto text-sm">
+                {card.oldest_track && (
+                  <div className="bg-white/20 rounded-xl p-3">
+                    <div className="text-2xl font-bold">{card.oldest_track.year}</div>
+                    <div className="text-white/70 text-xs">Oldest track</div>
+                    <div className="text-white/90 text-xs mt-1 truncate">{card.oldest_track.name}</div>
+                  </div>
+                )}
+                {card.newest_track && (
+                  <div className="bg-white/20 rounded-xl p-3">
+                    <div className="text-2xl font-bold">{card.newest_track.year}</div>
+                    <div className="text-white/70 text-xs">Newest track</div>
+                    <div className="text-white/90 text-xs mt-1 truncate">{card.newest_track.name}</div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Decade Mix Card */}
+        {card.type === 'decade_mix' && (
+          <div className="text-center animate-fade-in">
+            <div className="card-emoji mb-4">{card.emoji}</div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">{card.title}</h2>
+            <div className="text-5xl md:text-6xl font-bold mb-2">{card.dominant_decade}</div>
+            <div className="text-white/70 mb-8">Your dominant era</div>
+            {card.decade_distribution && (
+              <div className="max-w-sm mx-auto">
+                {Object.entries(card.decade_distribution)
+                  .sort((a, b) => b[1] - a[1])
+                  .slice(0, 5)
+                  .map(([decade, count], i) => (
+                    <DecadeBar
+                      key={decade}
+                      decade={decade}
+                      count={count}
+                      maxCount={Math.max(...Object.values(card.decade_distribution || {}))}
+                      index={i}
+                    />
+                  ))}
+              </div>
             )}
           </div>
         )}

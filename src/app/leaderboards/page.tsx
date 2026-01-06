@@ -61,6 +61,18 @@ const leaderboardMeta: Record<LeaderboardKey, { title: string; description: stri
     gradient: 'from-red-500 to-red-700',
     metricLabel: 'links',
   },
+  obscurity_score: {
+    title: 'Most Obscure Taste',
+    description: 'Who digs deepest for hidden gems.',
+    gradient: 'from-amber-500 to-orange-500',
+    metricLabel: 'obscurity score',
+  },
+  genre_diversity: {
+    title: 'Genre Diversity',
+    description: 'Most eclectic music sharers.',
+    gradient: 'from-purple-500 to-pink-500',
+    metricLabel: 'unique genres',
+  },
 };
 
 function LeaderboardList({ entries, metricLabel }: { entries: LeaderboardEntry[]; metricLabel: string }) {

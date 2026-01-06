@@ -1,5 +1,11 @@
+export interface TrackInfo {
+  name: string;
+  artist: string;
+  year: number;
+}
+
 export interface Card {
-  type: 'intro' | 'stat' | 'platform' | 'mvp' | 'timeline' | 'leaderboard_highlight' | 'outro';
+  type: 'intro' | 'stat' | 'platform' | 'mvp' | 'timeline' | 'leaderboard_highlight' | 'outro' | 'genre_profile' | 'audio_personality' | 'discovery_stats' | 'decade_mix';
   title: string;
   stat?: number;
   stat_label?: string;
@@ -19,6 +25,24 @@ export interface Card {
   messages?: number;
   links?: number;
   reactions?: number;
+  // Genre profile card
+  genres?: string[];
+  genre_count?: number;
+  top_genre?: string;
+  // Audio personality card
+  danceability?: number;
+  energy?: number;
+  valence?: number;
+  tempo_avg?: number;
+  personality_label?: string;
+  // Discovery stats card
+  obscurity_score?: number;
+  avg_popularity?: number;
+  oldest_track?: TrackInfo;
+  newest_track?: TrackInfo;
+  // Decade mix card
+  decade_distribution?: Record<string, number>;
+  dominant_decade?: string;
 }
 
 export interface User {
@@ -64,6 +88,8 @@ export interface Leaderboards {
   spotify: LeaderboardEntry[];
   soundcloud: LeaderboardEntry[];
   youtube: LeaderboardEntry[];
+  obscurity_score: LeaderboardEntry[];
+  genre_diversity: LeaderboardEntry[];
 }
 
 export type LeaderboardKey = keyof Leaderboards;
