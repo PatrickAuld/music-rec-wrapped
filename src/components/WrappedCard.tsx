@@ -96,7 +96,11 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
   const rawLeaderboard = leaderboardKey ? leaderboards[leaderboardKey] : null;
   const leaderboardLabel = leaderboardKey ? leaderboardTitles[leaderboardKey] : null;
   const formattedLeaderboard = rawLeaderboard ? formatLeaderboard(rawLeaderboard, userName, card.rank) : null;
-  const showStandaloneRank = !(formattedLeaderboard && card.type === 'leaderboard_highlight');
+  const showLeaderboardPanel =
+    formattedLeaderboard &&
+    formattedLeaderboard.userEntry &&
+    formattedLeaderboard.userEntry[2] <= 4;
+  const showStandaloneRank = !(showLeaderboardPanel && card.type === 'leaderboard_highlight');
 
   return (
     <div
@@ -265,7 +269,7 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
         )}
 
         {/* Leaderboard display */}
-        {formattedLeaderboard && formattedLeaderboard.sortedEntries.length > 0 && (
+        {showLeaderboardPanel && formattedLeaderboard && formattedLeaderboard.sortedEntries.length > 0 && (
           <div className="mt-8 animate-fade-in max-w-xl mx-auto w-full">
             <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 shadow-lg">
               <div className="flex items-center justify-between mb-3 text-sm text-white/80">
@@ -283,19 +287,19 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
                   const widthPercent = formattedLeaderboard.maxValue
                     ? Math.max(6, (value / formattedLeaderboard.maxValue) * 100)
                     : 0;
+                  const barClass = isUser ? 'bg-slate-900/80' : 'bg-white/70';
                   return (
                     <div
                       key={`${name}-${rank}`}
-                      className={`p-2 rounded-xl ${isUser ? 'bg-white/25' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
+                      className={`p-2 rounded-xl ${isUser ? 'bg-gradient-to-r from-pink-300/80 via-amber-200/80 to-cyan-200/80 text-slate-900 shadow-lg ring-2 ring-white/60' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 text-center font-bold ${sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
+                        <div className={`w-8 text-center font-bold ${isUser ? 'text-slate-900' : sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
                           #{rank}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className={`truncate ${isUser ? 'font-semibold' : ''}`}>
                             {name}
-                            {isUser ? ' (you)' : ''}
                           </div>
                           {sharesRank && !isUser && (
                             <div className="text-xs text-white/70">Same position</div>
@@ -307,7 +311,7 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
                       </div>
                       <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-white/70"
+                          className={`h-full ${barClass}`}
                           style={{ width: `${widthPercent}%` }}
                           aria-hidden="true"
                         />
