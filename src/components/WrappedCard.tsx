@@ -34,6 +34,8 @@ const leaderboardTitles: Record<LeaderboardKey, string> = {
   spotify: 'Spotify Shares',
   soundcloud: 'SoundCloud Shares',
   youtube: 'YouTube Shares',
+  obscurity_score: 'Obscurity Score',
+  genre_diversity: 'Genre Diversity',
 };
 
 function getGradient(index: number, card: Card): string {
@@ -62,6 +64,8 @@ function getLeaderboardKeyForCard(card: Card): LeaderboardKey | null {
     if (label?.includes('replies to your messages')) return 'replies_received';
     if (label?.includes('replies sent')) return 'replies_sent';
     if (label?.includes('days in a row')) return 'longest_streak';
+    if (label?.includes('obscurity')) return 'obscurity_score';
+    if (label?.includes('genre')) return 'genre_diversity';
   }
 
   if (card.type === 'platform' && card.platform) {
@@ -78,6 +82,8 @@ function getLeaderboardKeyForCard(card: Card): LeaderboardKey | null {
     if (boardName.includes('loved')) return 'reactions_received';
     if (boardName.includes('reply champion')) return 'replies_sent';
     if (boardName.includes('youtube')) return 'youtube';
+    if (boardName.includes('obscurity')) return 'obscurity_score';
+    if (boardName.includes('genre')) return 'genre_diversity';
   }
 
   return null;
