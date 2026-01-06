@@ -2,18 +2,19 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { User } from '../types';
+import { Leaderboards, User } from '../types';
 import WrappedCard from './WrappedCard';
 import html2canvas from 'html2canvas';
 
 interface WrappedViewerProps {
   user: User;
   userName: string;
+  leaderboards: Leaderboards;
 }
 
 const AUTO_ADVANCE_MS = 30000; // 30 seconds
 
-export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
+export default function WrappedViewer({ user, userName, leaderboards }: WrappedViewerProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
@@ -200,6 +201,7 @@ export default function WrappedViewer({ user, userName }: WrappedViewerProps) {
           key={currentIndex}
           card={cards[currentIndex]}
           userName={userName}
+          leaderboards={leaderboards}
           cardIndex={currentIndex}
           totalCards={totalCards}
           progress={progress}

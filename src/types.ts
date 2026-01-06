@@ -66,6 +66,8 @@ export interface Leaderboards {
   youtube: LeaderboardEntry[];
 }
 
+export type LeaderboardKey = keyof Leaderboards;
+
 export interface WrappedData {
   top_level: TopLevel;
   leaderboards: Leaderboards;

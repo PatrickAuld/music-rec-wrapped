@@ -1,10 +1,11 @@
 'use client';
 
-import { Card } from '../types';
+import { Card, LeaderboardEntry, LeaderboardKey, Leaderboards } from '../types';
 
 interface WrappedCardProps {
   card: Card;
   userName: string;
+  leaderboards: Leaderboards;
   cardIndex: number;
   totalCards: number;
   progress: number;
@@ -21,6 +22,18 @@ const cardGradients = [
   'from-emerald-500 to-cyan-500',
 ];
 
+const leaderboardTitles: Record<LeaderboardKey, string> = {
+  messages: 'Messages',
+  music_links: 'Songs Shared',
+  reactions_received: 'Reactions Received',
+  replies_received: 'Replies to Your Messages',
+  replies_sent: 'Replies Sent',
+  longest_streak: 'Longest Streak',
+  spotify: 'Spotify Shares',
+  soundcloud: 'SoundCloud Shares',
+  youtube: 'YouTube Shares',
+};
+
 function getGradient(index: number, card: Card): string {
   if (card.type === 'platform') {
     const platform = card.platform?.toLowerCase() || '';
@@ -32,8 +45,55 @@ function getGradient(index: number, card: Card): string {
   return cardGradients[index % cardGradients.length];
 }
 
-export default function WrappedCard({ card, userName, cardIndex, totalCards, progress }: WrappedCardProps) {
+function getLeaderboardKeyForCard(card: Card): LeaderboardKey | null {
+  if (card.type === 'intro') return 'messages';
+
+  if (card.type === 'stat') {
+    const label = card.stat_label?.toLowerCase();
+    if (label?.includes('songs shared')) return 'music_links';
+    if (label?.includes('reactions received')) return 'reactions_received';
+    if (label?.includes('replies to your messages')) return 'replies_received';
+    if (label?.includes('replies sent')) return 'replies_sent';
+    if (label?.includes('days in a row')) return 'longest_streak';
+  }
+
+  if (card.type === 'platform' && card.platform) {
+    const platform = card.platform.toLowerCase();
+    if (platform.includes('spotify')) return 'spotify';
+    if (platform.includes('soundcloud')) return 'soundcloud';
+    if (platform.includes('youtube')) return 'youtube';
+  }
+
+  if (card.type === 'leaderboard_highlight' && card.board_name) {
+    const boardName = card.board_name.toLowerCase();
+    if (boardName.includes('message')) return 'messages';
+    if (boardName.includes('music curator')) return 'music_links';
+    if (boardName.includes('loved')) return 'reactions_received';
+    if (boardName.includes('reply champion')) return 'replies_sent';
+    if (boardName.includes('youtube')) return 'youtube';
+  }
+
+  return null;
+}
+
+function formatLeaderboard(entries: LeaderboardEntry[], userName: string, userRank?: number) {
+  const sortedEntries = entries.slice().sort((a, b) => a[2] - b[2]);
+  const matchingRankEntries = userRank ? sortedEntries.filter(([, , rank]) => rank === userRank) : [];
+  const userEntry = sortedEntries.find(([name]) => name === userName);
+
+  return {
+    sortedEntries,
+    matchingRankEntries,
+    userEntry,
+  };
+}
+
+export default function WrappedCard({ card, userName, leaderboards, cardIndex, totalCards, progress }: WrappedCardProps) {
   const gradient = getGradient(cardIndex, card);
+  const leaderboardKey = getLeaderboardKeyForCard(card);
+  const rawLeaderboard = leaderboardKey ? leaderboards[leaderboardKey] : null;
+  const leaderboardLabel = leaderboardKey ? leaderboardTitles[leaderboardKey] : null;
+  const formattedLeaderboard = rawLeaderboard ? formatLeaderboard(rawLeaderboard, userName, card.rank) : null;
 
   return (
     <div
@@ -192,6 +252,55 @@ export default function WrappedCard({ card, userName, cardIndex, totalCards, pro
             </div>
             <div className="mt-8 text-white/60 text-sm">
               Music Rec Wrapped 2025
+            </div>
+          </div>
+        )}
+
+        {/* Leaderboard display */}
+        {formattedLeaderboard && formattedLeaderboard.sortedEntries.length > 0 && (
+          <div className="mt-8 animate-fade-in">
+            <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 shadow-lg">
+              <div className="flex items-center justify-between mb-3 text-sm text-white/80">
+                <span>{leaderboardLabel ? `${leaderboardLabel} leaderboard` : 'Leaderboard'}</span>
+                {card.rank && (
+                  <span className="font-semibold">
+                    #{card.rank} position
+                  </span>
+                )}
+              </div>
+              <div className="space-y-2 max-h-64 overflow-y-auto no-scrollbar pr-1">
+                {formattedLeaderboard.sortedEntries.map(([name, value, rank]) => {
+                  const isUser = name === userName;
+                  const sharesRank = card.rank && rank === card.rank;
+                  return (
+                    <div
+                      key={`${name}-${rank}`}
+                      className={`flex items-center gap-3 p-2 rounded-xl ${isUser ? 'bg-white/25' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
+                    >
+                      <div className={`w-8 text-center font-bold ${sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
+                        #{rank}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className={`truncate ${isUser ? 'font-semibold' : ''}`}>
+                          {name}
+                          {isUser ? ' (you)' : ''}
+                        </div>
+                        {sharesRank && !isUser && (
+                          <div className="text-xs text-white/70">Same position</div>
+                        )}
+                      </div>
+                      <div className="text-sm font-semibold text-white/90">
+                        {value.toLocaleString()}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {card.rank && (!formattedLeaderboard.userEntry || formattedLeaderboard.matchingRankEntries.length > 1) && (
+                <div className="mt-3 text-xs text-white/70">
+                  Showing everyone at position #{card.rank} and the rest of the board.
+                </div>
+              )}
             </div>
           </div>
         )}
