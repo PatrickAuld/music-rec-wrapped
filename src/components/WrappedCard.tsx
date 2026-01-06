@@ -80,11 +80,13 @@ function formatLeaderboard(entries: LeaderboardEntry[], userName: string, userRa
   const sortedEntries = entries.slice().sort((a, b) => a[2] - b[2]);
   const matchingRankEntries = userRank ? sortedEntries.filter(([, , rank]) => rank === userRank) : [];
   const userEntry = sortedEntries.find(([name]) => name === userName);
+  const maxValue = sortedEntries.reduce((max, [, value]) => Math.max(max, value), 0);
 
   return {
     sortedEntries,
     matchingRankEntries,
     userEntry,
+    maxValue,
   };
 }
 
@@ -94,6 +96,7 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
   const rawLeaderboard = leaderboardKey ? leaderboards[leaderboardKey] : null;
   const leaderboardLabel = leaderboardKey ? leaderboardTitles[leaderboardKey] : null;
   const formattedLeaderboard = rawLeaderboard ? formatLeaderboard(rawLeaderboard, userName, card.rank) : null;
+  const showStandaloneRank = !(formattedLeaderboard && card.type === 'leaderboard_highlight');
 
   return (
     <div
@@ -217,14 +220,19 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
         {/* Leaderboard Highlight Card */}
         {card.type === 'leaderboard_highlight' && (
           <div className="text-center animate-fade-in">
-            <div className="card-emoji mb-4">{card.emoji}</div>
-            <div className="text-8xl md:text-9xl font-black mb-4 animate-scale-in">
-              #{card.rank}
-            </div>
+            <div className="card-emoji mb-3">{card.emoji}</div>
+            {showStandaloneRank && (
+              <div className="text-8xl md:text-9xl font-black mb-2 animate-scale-in">
+                #{card.rank}
+              </div>
+            )}
             <h2 className="text-2xl md:text-3xl font-bold">{card.board_name}</h2>
-            <div className="mt-4 text-white/70">
+            <div className="mt-2 text-white/80">
               {card.value?.toLocaleString()} total
             </div>
+            {!showStandaloneRank && card.rank && (
+              <div className="mt-1 text-sm text-white/70">Showing the full board for position #{card.rank}</div>
+            )}
           </div>
         )}
 
@@ -258,7 +266,7 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
 
         {/* Leaderboard display */}
         {formattedLeaderboard && formattedLeaderboard.sortedEntries.length > 0 && (
-          <div className="mt-8 animate-fade-in">
+          <div className="mt-8 animate-fade-in max-w-xl mx-auto w-full">
             <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 shadow-lg">
               <div className="flex items-center justify-between mb-3 text-sm text-white/80">
                 <span>{leaderboardLabel ? `${leaderboardLabel} leaderboard` : 'Leaderboard'}</span>
@@ -272,25 +280,37 @@ export default function WrappedCard({ card, userName, leaderboards, cardIndex, t
                 {formattedLeaderboard.sortedEntries.map(([name, value, rank]) => {
                   const isUser = name === userName;
                   const sharesRank = card.rank && rank === card.rank;
+                  const widthPercent = formattedLeaderboard.maxValue
+                    ? Math.max(6, (value / formattedLeaderboard.maxValue) * 100)
+                    : 0;
                   return (
                     <div
                       key={`${name}-${rank}`}
-                      className={`flex items-center gap-3 p-2 rounded-xl ${isUser ? 'bg-white/25' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
+                      className={`p-2 rounded-xl ${isUser ? 'bg-white/25' : sharesRank ? 'bg-white/10' : 'bg-white/5'}`}
                     >
-                      <div className={`w-8 text-center font-bold ${sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
-                        #{rank}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className={`truncate ${isUser ? 'font-semibold' : ''}`}>
-                          {name}
-                          {isUser ? ' (you)' : ''}
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 text-center font-bold ${sharesRank ? 'text-amber-100' : 'text-white/80'}`}>
+                          #{rank}
                         </div>
-                        {sharesRank && !isUser && (
-                          <div className="text-xs text-white/70">Same position</div>
-                        )}
+                        <div className="flex-1 min-w-0">
+                          <div className={`truncate ${isUser ? 'font-semibold' : ''}`}>
+                            {name}
+                            {isUser ? ' (you)' : ''}
+                          </div>
+                          {sharesRank && !isUser && (
+                            <div className="text-xs text-white/70">Same position</div>
+                          )}
+                        </div>
+                        <div className="text-sm font-semibold text-white/90">
+                          {value.toLocaleString()}
+                        </div>
                       </div>
-                      <div className="text-sm font-semibold text-white/90">
-                        {value.toLocaleString()}
+                      <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-white/70"
+                          style={{ width: `${widthPercent}%` }}
+                          aria-hidden="true"
+                        />
                       </div>
                     </div>
                   );
