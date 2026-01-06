@@ -1,4 +1,4 @@
-name: PR Production Build
+name: Full Build
 
 on:
   pull_request:
